@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Meanbee_Royalmail>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Meanbee_Royalmail>
+	</modules>
+</config>
