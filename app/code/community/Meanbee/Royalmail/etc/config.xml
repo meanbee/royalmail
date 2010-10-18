@@ -20,72 +20,72 @@
  */
  -->
 <config>
-	<modules>
-		<Meanbee_Royalmail>
-			<version>2.2.0</version>
-			<depends>
-				<Mage_Shipping />
-			</depends>
-		</Meanbee_Royalmail>
-	</modules>
+    <modules>
+        <Meanbee_Royalmail>
+            <version>2.2.0</version>
+            <depends>
+                <Mage_Shipping />
+            </depends>
+        </Meanbee_Royalmail>
+    </modules>
 
-	<global>
-		<models>
-			<royalmail>
-				<class>Meanbee_Royalmail_Model</class>
-			</royalmail>
-		</models>
-		<helpers>
-			<royalmail>
-				<class>Meanbee_Royalmail_Helper</class>
-			</royalmail>
-		</helpers>
+    <global>
+        <models>
+            <royalmail>
+                <class>Meanbee_Royalmail_Model</class>
+            </royalmail>
+        </models>
+        <helpers>
+            <royalmail>
+                <class>Meanbee_Royalmail_Helper</class>
+            </royalmail>
+        </helpers>
 
-		<resources>
-			<royalmail_setup>
-				<setup>
-					<module>Meanbee_Royalmail</module>
-				</setup>
-				<connection>
-					<use>directory_setup</use>
-				</connection>
-			</royalmail_setup>
+        <resources>
+            <royalmail_setup>
+                <setup>
+                    <module>Meanbee_Royalmail</module>
+                </setup>
+                <connection>
+                    <use>directory_setup</use>
+                </connection>
+            </royalmail_setup>
 
-			<royalmail_read>
-			    <connection>
-					<use>local_read</use>
-				</connection>
-			</royalmail_read>
-		</resources>
+            <royalmail_read>
+                <connection>
+                    <use>local_read</use>
+                </connection>
+            </royalmail_read>
+        </resources>
+        
+        <sales>
+            <shipping>
+                <carriers>
+                    <royalmail>
+                        <class>Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail</class>
+                    </royalmail>
+                </carriers>
+            </shipping>
+        </sales>
+    </global>
 
-				<sales>
-						<shipping>
-								<carriers>
-										<royalmail>
-												<class>Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail</class>
-										</royalmail>
-								</carriers>
-						</shipping>
-				</sales>
-	</global>
-
-	<default>
-		<carriers>
-			<royalmail>
-				<active>0</active>
-				<model>meanbee_royalmail_model_shipping_carrier_royalmail</model>
-				<allowed_methods></allowed_methods>
-				<weight_unit>g</weight_unit>
-				<rounding_rule>none</rounding_rule>
-				<google_checkout_compatible>0</google_checkout_compatible>
-				<name>Royal Mail</name>
-				<title>Royal Mail</title>
-				<specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
-				<sallowspecific>1</sallowspecific>
-				<specificcountry>GB</specificcountry>
-				<showmethod>0</showmethod>
-				<sort_order>0</sort_order>
-			</royalmail>
-		</carriers>
-	</default>
+    <default>
+        <carriers>
+            <royalmail>
+                <active>0</active>
+                <model>meanbee_royalmail_model_shipping_carrier_royalmail</model>
+                <allowed_methods></allowed_methods>
+                <weight_unit>g</weight_unit>
+                <rounding_rule>none</rounding_rule>
+                <google_checkout_compatible>0</google_checkout_compatible>
+                <name>Royal Mail</name>
+                <title>Royal Mail</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>GB</specificcountry>
+                <showmethod>0</showmethod>
+                <sort_order>0</sort_order>
+            </royalmail>
+        </carriers>
+    </default>
 </config>

@@ -18,62 +18,62 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail {
-	    
-	private $_extraCharge = 4.90;
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail {
+        
+    private $_extraCharge = 4.90;
 
-	protected function getRates() {
-		$rates = parent::getRates();
-		$country = strtoupper($this->_getCountry());
+    protected function getRates() {
+        $rates = parent::getRates();
+        $country = strtoupper($this->_getCountry());
 
-		if ($rates == null) {
-			return null;
-		}
+        if ($rates == null) {
+            return null;
+        }
 
-		if ($this->_validAirsureCountry()) {
-			for ($i = 0; $i < count($rates); $i++) {
-				$rates[$i]['cost'] += $this->_extraCharge;
-			}
+        if ($this->_validAirsureCountry()) {
+            for ($i = 0; $i < count($rates); $i++) {
+                $rates[$i]['cost'] += $this->_extraCharge;
+            }
 
-			return $rates;
-		} else {
-			return null;
-		}
-	}
-
-
-	protected function calculateRate($weight) {
-		$rate = parent::calculateRate($weight);
-		
-		if ($this->_validAirsureCountry() && $rate != null) {
-			return $rate + $this->_extraCharge;
-		} else {
-			return null;
-		}
-	}
-
-	protected function _validAirsureCountry() {
-		$country = strtoupper($this->_getCountry());
+            return $rates;
+        } else {
+            return null;
+        }
+    }
 
 
-		switch($country) {
-			case 'AD': case 'AT': case 'BE': case 'DK': case 'FO': case 'FI': case 'FR': case 'DE':
-			case 'IS': case 'LI': case 'LU': case 'MC': case 'NL': case 'PT': case 'IE': case 'SK':
-			case 'ES': case 'SE': case 'CH':
+    protected function calculateRate($weight) {
+        $rate = parent::calculateRate($weight);
+        
+        if ($this->_validAirsureCountry() && $rate != null) {
+            return $rate + $this->_extraCharge;
+        } else {
+            return null;
+        }
+    }
 
-			case 'BR': case 'CA': case 'HK': case 'MY': case 'SG':
-			case 'US':
+    protected function _validAirsureCountry() {
+        $country = strtoupper($this->_getCountry());
 
-			case 'NZ':
-				return true;
-				break;
-			default:
-				return false;
-				break;
-		}
-	}
 
-	protected function _getMaximumCartTotal() {
-		return 36;
-	}
+        switch($country) {
+            case 'AD': case 'AT': case 'BE': case 'DK': case 'FO': case 'FI': case 'FR': case 'DE':
+            case 'IS': case 'LI': case 'LU': case 'MC': case 'NL': case 'PT': case 'IE': case 'SK':
+            case 'ES': case 'SE': case 'CH':
+
+            case 'BR': case 'CA': case 'HK': case 'MY': case 'SG':
+            case 'US':
+
+            case 'NZ':
+                return true;
+                break;
+            default:
+                return false;
+                break;
+        }
+    }
+
+    protected function _getMaximumCartTotal() {
+        return 36;
+    }
 }

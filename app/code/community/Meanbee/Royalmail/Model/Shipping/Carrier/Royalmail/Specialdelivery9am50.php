@@ -18,20 +18,20 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdelivery9am50
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-	protected function getRates() {
-		$rates = $this->_loadCsv('9am50');
+    protected function getRates() {
+        $rates = $this->_loadCsv('9am50');
 
-		if ($this->_getCountry() == 'GB') {
-			return $rates;
-		}
+        if ($this->_getCountry() == 'GB') {
+            return $rates;
+        }
 
-		return null;
-	}
+        return null;
+    }
 
 
-	protected function _getMaximumCartTotal() {
-		return 50;
-	}
+    protected function _getMaximumCartTotal() {
+        return 50;
+    }
 }

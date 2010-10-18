@@ -19,145 +19,145 @@
  */
  -->
 <config>
-	<sections>
-		<carriers>
-			<groups>
-				<royalmail translate="label" module="royalmail">
-					<label>Royal Mail (Powered by Meanbee)</label>
-					<frontend_type>text</frontend_type>
-					<sort_order>20</sort_order>
-					<show_in_default>1</show_in_default>
-					<show_in_website>1</show_in_website>
-					<show_in_store>1</show_in_store>
-					<comment>
-          <![CDATA[
-			<div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
-			This module was developed by <a href="http://www.meanbee.com" target="_blank">Meanbee Internet Solutions</a> - we specialise in developing useful Magento modules for the UK market.
-            If you require any support, please contact us at <a href="mailto:support@meanbee.com">support@meanbee.com</a> or <a href="http://getsatisfaction.com/meanbee/products/meanbee_postcode_address_autofill_magento_module" target="_blank">getsatifaction</a>.  We'd prefer getsatisfaction over email, and email over the Magento forums and private messages.
-			We have a <a href="http://meanbee.com/newsletter" target="_blank">newsletter</a>, use <a href="http://twitter.com/meanbeeuk" target="_blank">twitter</a>, make <a href="http://www.meanbee.com/products" target="_blank">other modules</a> and <a href="http://www.meanbee.com/portfolio/magento-royalmail-module" target="_blank">accept donations</a>.  If this module helping you sell online please consider rating it at the <a href="http://www.magentocommerce.com/extension/480">module homepage</a> on the MagentoCommerce.com site.
-			</div>
-		  ]]>
-					</comment>
+    <sections>
+        <carriers>
+            <groups>
+                <royalmail translate="label" module="royalmail">
+                    <label>Royal Mail (Powered by Meanbee)</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[
+                            <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+                                This module was developed by <a href="http://www.meanbee.com" target="_blank">Meanbee Internet Solutions</a> - we specialise in developing useful Magento modules for the UK market.
+                                If you require any support, please contact us at <a href="mailto:support@meanbee.com">support@meanbee.com</a> or <a href="http://getsatisfaction.com/meanbee/products/meanbee_postcode_address_autofill_magento_module" target="_blank">getsatifaction</a>.  We'd prefer getsatisfaction over email, and email over the Magento forums and private messages.
+                                We have a <a href="http://meanbee.com/newsletter" target="_blank">newsletter</a>, use <a href="http://twitter.com/meanbeeuk" target="_blank">twitter</a>, make <a href="http://www.meanbee.com/products" target="_blank">other modules</a> and <a href="http://www.meanbee.com/portfolio/magento-royalmail-module" target="_blank">accept donations</a>.  If this module helping you sell online please consider rating it at the <a href="http://www.magentocommerce.com/extension/480">module homepage</a> on the MagentoCommerce.com site.
+                            </div>
+                        ]]>
+                    </comment>
 
-					<fields>
-						<active translate="label">
-							<label>Enabled</label>
-							<frontend_type>select</frontend_type>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<sort_order>10</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</active>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
 
-						<weight_unit translate="label">
-							<label>Unit of Weight</label>
-							<frontend_type>select</frontend_type>
-							<source_model>royalmail/weightunit</source_model>
-							<sort_order>20</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-							<comment>Select the unit that your store uses to designate the weight of each item</comment>
-						</weight_unit>
+                        <weight_unit translate="label">
+                            <label>Unit of Weight</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>royalmail/weightunit</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select the unit that your store uses to designate the weight of each item</comment>
+                        </weight_unit>
 
-						<rounding_rule translate="label">
-							<label>Rounding Rule</label>
-							<frontend_type>select</frontend_type>
-							<source_model>royalmail/roundingrule</source_model>
-							<sort_order>20</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-							<comment>Select the rule that you would like to apply to the price calculate by the module before displaying it to the customer</comment>
-						</rounding_rule>
+                        <rounding_rule translate="label">
+                            <label>Rounding Rule</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>royalmail/roundingrule</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select the rule that you would like to apply to the price calculate by the module before displaying it to the customer</comment>
+                        </rounding_rule>
 
-						<allowed_methods translate="label">
-							<label>Allowed methods</label>
-							<frontend_type>multiselect</frontend_type>
-							<source_model>royalmail/shipping_carrier_royalmail_source_method</source_model>
-							<sort_order>25</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-							<comment>Select the shipping options that you would like to appear to the customer as an option.  Any options that are not selected will not be presented to the customer.</comment>
-						</allowed_methods>
+                        <allowed_methods translate="label">
+                            <label>Allowed methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>royalmail/shipping_carrier_royalmail_source_method</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select the shipping options that you would like to appear to the customer as an option.  Any options that are not selected will not be presented to the customer.</comment>
+                        </allowed_methods>
 
-						<handling_fee translate="label">
-							<label>Handling Fee</label>
-							<frontend_type>text</frontend_type>
-							<sort_order>40</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-							<comment>If you specify a handling fee (in the base currency) then it will added to the calculated cost of postage</comment>
-						</handling_fee>
-						
+                        <handling_fee translate="label">
+                            <label>Handling Fee</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>If you specify a handling fee (in the base currency) then it will added to the calculated cost of postage</comment>
+                        </handling_fee>
+                        
                         <handling_type>
                             <label>Handling Fee Type</label>
                             <frontend_type>select</frontend_type>
                             <sort_order>41</sort_order>
                             <source_model>shipping/source_handlingType</source_model>
                             <show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </handling_type>
                         
-						<title translate="label">
-							<label>Title</label>
-							<frontend_type>text</frontend_type>
-							<sort_order>50</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</title>
-						<specificerrmsg translate="label">
-							<label>Displayed Error Message</label>
-							<frontend_type>textarea</frontend_type>
-							<sort_order>60</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</specificerrmsg>
-						<sallowspecific translate="label">
-							<label>Ship to applicable countries</label>
-							<frontend_type>select</frontend_type>
-							<sort_order>70</sort_order>
-							<frontend_class>shipping-applicable-country</frontend_class>
-							<source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</sallowspecific>
-						<specificcountry translate="label">
-							<label>Ship to Specific countries</label>
-							<frontend_type>multiselect</frontend_type>
-							<sort_order>80</sort_order>
-							<source_model>adminhtml/system_config_source_country</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</specificcountry>
-						<showmethod translate="label">
-							<label>Show method if not applicable</label>
-							<frontend_type>select</frontend_type>
-							<sort_order>90</sort_order>
-							<source_model>adminhtml/system_config_source_yesno</source_model>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</showmethod>
-						<sort_order translate="label">
-							<label>Sort Order</label>
-							<frontend_type>text</frontend_type>
-							<sort_order>100</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>1</show_in_website>
-							<show_in_store>1</show_in_store>
-						</sort_order>
-					</fields>
-				</royalmail>
-			</groups>
-		</carriers>
-	</sections>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <specificerrmsg translate="label">
+                            <label>Displayed Error Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificerrmsg>
+                        <sallowspecific translate="label">
+                            <label>Ship to applicable countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>70</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <showmethod translate="label">
+                            <label>Show method if not applicable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </showmethod>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </royalmail>
+            </groups>
+        </carriers>
+    </sections>
 </config>

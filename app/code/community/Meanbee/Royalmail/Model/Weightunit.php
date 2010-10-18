@@ -18,14 +18,12 @@
  */
 
 class Meanbee_Royalmail_Model_Weightunit {
-    public function toOptionArray()
-    {
-
-		$units = array(
-			array('value' => 'kg', 'label' => 'Kilograms (kg)'),
-			array('value' => 'g', 'label' => 'Grams (g)'),
-			array('value' => 'lb', 'label' => 'Pounds (lb)'),
-		);
+    public function toOptionArray() {
+        $units = array(
+            array('value' => 'kg', 'label' => 'Kilograms (kg)'),
+            array('value' => 'g', 'label' => 'Grams (g)'),
+            array('value' => 'lb', 'label' => 'Pounds (lb)'),
+        );
 
         return $units;
     }

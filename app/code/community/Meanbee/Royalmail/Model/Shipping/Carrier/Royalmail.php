@@ -18,100 +18,100 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
-	extends Mage_Shipping_Model_Carrier_Abstract
-	implements Mage_Shipping_Model_Carrier_Interface {
+    extends Mage_Shipping_Model_Carrier_Abstract
+    implements Mage_Shipping_Model_Carrier_Interface {
 
-	protected $_code = 'royalmail';
+    protected $_code = 'royalmail';
 
-	public function collectRates(Mage_Shipping_Model_Rate_Request $request) {
-		if (!$this->getConfigFlag('active')) {
-			return false;
-		}
+    public function collectRates(Mage_Shipping_Model_Rate_Request $request) {
+        if (!$this->getConfigFlag('active')) {
+            return false;
+        }
 
-		$freeBoxes = 0;
-		$removeWeight = 0;
-		if ($request->getAllItems()) {
-			foreach ($request->getAllItems() as $item) {
-				if ($item->getFreeShipping() && !$item->getProduct()->getTypeInstance()->isVirtual()) {
-					$freeBoxes += $item->getQty();
-					$removeWeight += $item->getWeight() * $item->getQty();
-				}
-			}
-		}
-		$this->setFreeBoxes($freeBoxes);
+        $freeBoxes = 0;
+        $removeWeight = 0;
+        if ($request->getAllItems()) {
+            foreach ($request->getAllItems() as $item) {
+                if ($item->getFreeShipping() && !$item->getProduct()->getTypeInstance()->isVirtual()) {
+                    $freeBoxes += $item->getQty();
+                    $removeWeight += $item->getWeight() * $item->getQty();
+                }
+            }
+        }
+        $this->setFreeBoxes($freeBoxes);
 
-		$result = Mage::getModel('shipping/rate_result');
+        $result = Mage::getModel('shipping/rate_result');
 
-		if (count($this->getAllowedMethods()) > 0) {
-			foreach ($this->getAllowedMethods() as $key => $value) {
-				$obj = Mage::getModel("royalmail/shipping_carrier_royalmail_$key");
-				$obj->setWeightUnit($this->getConfigData('weight_unit'));
+        if (count($this->getAllowedMethods()) > 0) {
+            foreach ($this->getAllowedMethods() as $key => $value) {
+                $obj = Mage::getModel("royalmail/shipping_carrier_royalmail_$key");
+                $obj->setWeightUnit($this->getConfigData('weight_unit'));
 
-				$obj->setNegativeWeight($removeWeight);
+                $obj->setNegativeWeight($removeWeight);
 
-				$cost = $obj->getCost($request);
+                $cost = $obj->getCost($request);
 
-				if ($cost !== null) {
-					$method = Mage::getModel('shipping/rate_result_method');
+                if ($cost !== null) {
+                    $method = Mage::getModel('shipping/rate_result_method');
 
-					$method->setCarrier($this->_code);
-					$method->setCarrierTitle($this->getConfigData('title'));
+                    $method->setCarrier($this->_code);
+                    $method->setCarrierTitle($this->getConfigData('title'));
 
-					$method->setMethod($key);
-					$method->setMethodTitle($value);
+                    $method->setMethod($key);
+                    $method->setMethodTitle($value);
 
-					if ($request->getFreeShipping() === true || $request->getPackageQty() == $this->getFreeBoxes()) {
-						$price = '0.00';
-					} else {
-						$price = $this->_performRounding($this->getFinalPriceWithHandlingFee($cost));
-					}
+                    if ($request->getFreeShipping() === true || $request->getPackageQty() == $this->getFreeBoxes()) {
+                        $price = '0.00';
+                    } else {
+                        $price = $this->_performRounding($this->getFinalPriceWithHandlingFee($cost));
+                    }
 
-					$method->setPrice($price);
-					$method->setCost($price);
+                    $method->setPrice($price);
+                    $method->setCost($price);
 
-					$result->append($method);
-					
-					if ($price == '0.00') {
-						break; // No more free methods
-					}
-				}
-			}
-		}
+                    $result->append($method);
+                    
+                    if ($price == '0.00') {
+                        break; // No more free methods
+                    }
+                }
+            }
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 
-	protected function _performRounding($number) {
-		$old = $number;
+    protected function _performRounding($number) {
+        $old = $number;
 
-		switch ($this->getConfigData('rounding_rule')) {
-			case 'pound':
-				$number = round($number);
-				break;
-			case 'pound-up':
-				$number = ceil($number);
-				break;
-			case 'pound-down':
-				$number = floor($number);
-				break;
-			case 'fifty':
-				$number = round($number * 2) / 2;
-				break;
-			case 'fifty-up':
-				$number = ceil($number * 2) / 2;
-				break;
-			case 'fifty-down':
-				$number = floor($number * 2) / 2;
-				break;
-		}
+        switch ($this->getConfigData('rounding_rule')) {
+            case 'pound':
+                $number = round($number);
+                break;
+            case 'pound-up':
+                $number = ceil($number);
+                break;
+            case 'pound-down':
+                $number = floor($number);
+                break;
+            case 'fifty':
+                $number = round($number * 2) / 2;
+                break;
+            case 'fifty-up':
+                $number = ceil($number * 2) / 2;
+                break;
+            case 'fifty-down':
+                $number = floor($number * 2) / 2;
+                break;
+        }
 
-		// Incase it rounds to 0
-		if ($number == 0) {
-			$number = ceil($old);
-		}
+        // Incase it rounds to 0
+        if ($number == 0) {
+            $number = ceil($old);
+        }
 
-		return $number;
-	}
+        return $number;
+    }
 
     public function getAllowedMethods() {
         $allowed = explode(',', $this->getConfigData('allowed_methods'));
@@ -122,39 +122,39 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         return $arr;
     }
 
-	public function getMethods($name=null) {
-    	$codes = array(
+    public function getMethods($name=null) {
+        $codes = array(
                 'letter' => 'Letter',
                 'largeletter' => 'Large Letter',
-				'secondclass' => 'Second Class Packet',
-				'secondclassrecordedsignedfor' => 'Second Class Packet (Recorded Signed for)',
-				'firstclass' => 'First Class Packet',
-				'firstclassrecordedsignedfor' => 'First Class Packet (Recorded Signed for)',
-				'standardparcel' => 'Standard Parcel (Up to 36GBP Insurance)',
-				'standardparcel100' => 'Standard Parcel (Up to 100GBP Insurance)',
-				'standardparcel250' => 'Standard Parcel (Up to 250GBP Insurance)',
-				'standardparcel500' => 'Standard Parcel (Up to 500GBP Insurance)',
-				'specialdeliverynextday500' => 'Special Delivery Next Day (Up to 500GBP Insurance)',
-				'specialdeliverynextday1000' => 'Special Delivery Next Day (Up to 1,000GBP Insurance)',
-				'specialdeliverynextday2500' => 'Special Delivery Next Day (Up to 2,500GBP Insurance)',
-				'specialdelivery9am50' => 'Special Delivery 9.00 am (Up to 50GBP Insurance)',
-				'specialdelivery9am1000' => 'Special Delivery 9.00 am (Up to 1,000GBP Insurance)',
-				'specialdelivery9am2500' => 'Special Delivery 9.00 am (Up to 2,500GBP Insurance)',
-				'airmail' => 'Airmail',
-				'airsure' => 'Airsure (Up to 36GBP Insurance)',
-				'airsureinsurance' => 'Airsure (Up to 500GBP Insurance)',
-				'internationalsignedfor' => 'International Signed For',
-				//'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
-    	);
-    	
-    	if ($name !== null) {
-    		if (isset($codes[$name])) {
-    			return $codes[$name];
-    		} else {
-    			return null;
-    		}
-    	} else {
-    		return $codes;
-    	}
+                'secondclass' => 'Second Class Packet',
+                'secondclassrecordedsignedfor' => 'Second Class Packet (Recorded Signed for)',
+                'firstclass' => 'First Class Packet',
+                'firstclassrecordedsignedfor' => 'First Class Packet (Recorded Signed for)',
+                'standardparcel' => 'Standard Parcel (Up to 36GBP Insurance)',
+                'standardparcel100' => 'Standard Parcel (Up to 100GBP Insurance)',
+                'standardparcel250' => 'Standard Parcel (Up to 250GBP Insurance)',
+                'standardparcel500' => 'Standard Parcel (Up to 500GBP Insurance)',
+                'specialdeliverynextday500' => 'Special Delivery Next Day (Up to 500GBP Insurance)',
+                'specialdeliverynextday1000' => 'Special Delivery Next Day (Up to 1,000GBP Insurance)',
+                'specialdeliverynextday2500' => 'Special Delivery Next Day (Up to 2,500GBP Insurance)',
+                'specialdelivery9am50' => 'Special Delivery 9.00 am (Up to 50GBP Insurance)',
+                'specialdelivery9am1000' => 'Special Delivery 9.00 am (Up to 1,000GBP Insurance)',
+                'specialdelivery9am2500' => 'Special Delivery 9.00 am (Up to 2,500GBP Insurance)',
+                'airmail' => 'Airmail',
+                'airsure' => 'Airsure (Up to 36GBP Insurance)',
+                'airsureinsurance' => 'Airsure (Up to 500GBP Insurance)',
+                'internationalsignedfor' => 'International Signed For',
+                //'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
+        );
+        
+        if ($name !== null) {
+            if (isset($codes[$name])) {
+                return $codes[$name];
+            } else {
+                return null;
+            }
+        } else {
+            return $codes;
+        }
     }
 }

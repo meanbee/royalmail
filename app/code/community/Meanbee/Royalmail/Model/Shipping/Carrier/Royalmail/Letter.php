@@ -18,15 +18,15 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Letter
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
         $rates = $this->_loadCsv('letter');
         
-		if ($this->_getCountry() == 'GB') {
-			return $rates;
-		}
+        if ($this->_getCountry() == 'GB') {
+            return $rates;
+        }
 
-		return null;
+        return null;
     }
 }
