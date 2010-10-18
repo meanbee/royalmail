@@ -18,43 +18,43 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-	public function getRates() {
-		$rates = $this->_loadCsv('firstclass');
+    public function getRates() {
+        $rates = $this->_loadCsv('firstclass');
 
-		if ($this->_getCountry() == 'GB') {
-			return $rates;
-		}
+        if ($this->_getCountry() == 'GB') {
+            return $rates;
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	/**
-	 * Any packages over 2kg will be sent here.  We can then add £2.80 to
-	 * each 2kg it is over.
-	 *
-	 * @param float Package weight
-	 * @return float Cost of delivery
-	 */
-	protected function calculateRate($weight) {
-		// Each additional 2kg or part thereof +280p
-		$rates = $this->getRates();
+    /**
+     * Any packages over 2kg will be sent here.  We can then add £2.80 to
+     * each 2kg it is over.
+     *
+     * @param float Package weight
+     * @return float Cost of delivery
+     */
+    protected function calculateRate($weight) {
+        // Each additional 2kg or part thereof +280p
+        $rates = $this->getRates();
 
-		if ($weight > 20000) {
-			return null;
-		}
-		
-		if ($rates == null) {
-			return null;
-		}
+        if ($weight > 20000) {
+            return null;
+        }
+        
+        if ($rates == null) {
+            return null;
+        }
 
-		$last_rate = $rates[count($rates) - 1];
+        $last_rate = $rates[count($rates) - 1];
 
-		$weight -= $last_rate['upper'];
+        $weight -= $last_rate['upper'];
 
-		$calculated = 2.80 * ceil($weight / 2000);
+        $calculated = 2.80 * ceil($weight / 2000);
 
-		return $last_rate['cost'] + $calculated;
-	}
+        return $last_rate['cost'] + $calculated;
+    }
 }

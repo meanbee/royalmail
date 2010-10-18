@@ -18,17 +18,17 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass {
 
     private $_extraCharge = 0.74;
 
-	protected function getRates() {
-		$rates = parent::getRates();
+    protected function getRates() {
+        $rates = parent::getRates();
 
-		for ($i = 0; $i < count($rates); $i++) {
-			$rates[$i]['cost'] += $this->_extraCharge;
-		}
+        for ($i = 0; $i < count($rates); $i++) {
+            $rates[$i]['cost'] += $this->_extraCharge;
+        }
 
-		return $rates;
-	}
+        return $rates;
+    }
 }

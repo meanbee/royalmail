@@ -17,6 +17,4 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
-
-}
+class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {}

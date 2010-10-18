@@ -18,39 +18,39 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsureinsurance
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure {
 
     private $_extraCharge = 2.50;
 
-	protected function getRates() {
-		$rates = parent::getRates();
+    protected function getRates() {
+        $rates = parent::getRates();
 
-		if ($rates == null) {
-			return null;
-		}
+        if ($rates == null) {
+            return null;
+        }
 
-		for ($i = 0; $i < count($rates); $i++) {
-			$rates[$i]['cost'] += $this->_extraCharge;
-		}
+        for ($i = 0; $i < count($rates); $i++) {
+            $rates[$i]['cost'] += $this->_extraCharge;
+        }
 
-		return $rates;
-	}
+        return $rates;
+    }
 
-	protected function calculateRate($weight) {
-		$rate = parent::calculateRate($weight);
+    protected function calculateRate($weight) {
+        $rate = parent::calculateRate($weight);
 
-		if ($rate == null) {
-			return null;
-		}
+        if ($rate == null) {
+            return null;
+        }
 
-		return $rate + $this->_extraCharge;
-	}
+        return $rate + $this->_extraCharge;
+    }
 
-	protected function _getMinimumCartTotal() {
-		return 36.01;
-	}
+    protected function _getMinimumCartTotal() {
+        return 36.01;
+    }
 
-	protected function _getMaximumCartTotal() {
-		return null;
-	}
+    protected function _getMaximumCartTotal() {
+        return null;
+    }
 }

@@ -18,19 +18,19 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday500
-	extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-	protected function getRates() {
-		$rates = $this->_loadCsv('nextday500');
+    protected function getRates() {
+        $rates = $this->_loadCsv('nextday500');
 
-		if ($this->_getCountry() == 'GB') {
-			return $rates;
-		}
+        if ($this->_getCountry() == 'GB') {
+            return $rates;
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	protected function _getMaximumCartTotal() {
-		return 500;
-	}
+    protected function _getMaximumCartTotal() {
+        return 500;
+    }
 }
