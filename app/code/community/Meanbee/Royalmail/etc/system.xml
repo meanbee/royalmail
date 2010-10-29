@@ -120,7 +120,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </specificerrmsg>
-                        
                         <sallowspecific translate="label">
                             <label>Ship to applicable countries</label>
                             <frontend_type>select</frontend_type>
