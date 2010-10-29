@@ -45,6 +45,12 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         if (count($this->getAllowedMethods()) > 0) {
             foreach ($this->getAllowedMethods() as $key => $value) {
                 $obj = Mage::getModel("royalmail/shipping_carrier_royalmail_$key");
+                
+                if ($obj === false) {
+                    Mage::log("Error loading royal mail: $key");
+                    continue;
+                }
+                
                 $obj->setWeightUnit($this->getConfigData('weight_unit'));
 
                 $obj->setNegativeWeight($removeWeight);
