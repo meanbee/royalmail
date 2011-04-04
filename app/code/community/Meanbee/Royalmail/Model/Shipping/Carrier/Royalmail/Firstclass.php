@@ -53,7 +53,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
 
         $weight -= $last_rate['upper'];
 
-        $calculated = 2.80 * ceil($weight / 2000);
+        $calculated = 3.05 * ceil($weight / 2000);
 
         return $last_rate['cost'] + $calculated;
     }
