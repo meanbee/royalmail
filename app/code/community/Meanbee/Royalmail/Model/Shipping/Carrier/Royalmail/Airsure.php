@@ -20,7 +20,7 @@
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail {
         
-    private $_extraCharge = 4.90;
+    private $_extraCharge = 5.30;
 
     protected function getRates() {
         $rates = parent::getRates();
