@@ -136,7 +136,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 'secondclassrecordedsignedfor' => 'Second Class Packet (Recorded Signed for)',
                 'firstclass' => 'First Class Packet',
                 'firstclassrecordedsignedfor' => 'First Class Packet (Recorded Signed for)',
-                'standardparcel' => 'Standard Parcel (Up to 36GBP Insurance)',
+                'standardparcel' => 'Standard Parcel (Up to 46GBP Insurance)',
                 'standardparcel100' => 'Standard Parcel (Up to 100GBP Insurance)',
                 'standardparcel250' => 'Standard Parcel (Up to 250GBP Insurance)',
                 'standardparcel500' => 'Standard Parcel (Up to 500GBP Insurance)',
@@ -147,10 +147,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 'specialdelivery9am1000' => 'Special Delivery 9.00 am (Up to 1,000GBP Insurance)',
                 'specialdelivery9am2500' => 'Special Delivery 9.00 am (Up to 2,500GBP Insurance)',
                 'airmail' => 'Airmail',
-                'airsure' => 'Airsure (Up to 36GBP Insurance)',
-                'airsureinsurance' => 'Airsure (Up to 500GBP Insurance)',
+                'airsure' => 'Airsure (Up to 41GBP Insurance)',
+                'airsureinsurance' => 'Airsure (Up to 250GBP/500GBP Insurance)',
                 'internationalsignedfor' => 'International Signed For',
-                //'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
+                'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
         );
         
         if ($name !== null) {
