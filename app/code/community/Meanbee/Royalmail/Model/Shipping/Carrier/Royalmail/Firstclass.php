@@ -38,7 +38,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
      * @return float Cost of delivery
      */
     protected function calculateRate($weight) {
-        // Each additional 2kg or part thereof +280p
+        // Each additional 2kg or part thereof +305p
         $rates = $this->getRates();
 
         if ($weight > 20000) {
