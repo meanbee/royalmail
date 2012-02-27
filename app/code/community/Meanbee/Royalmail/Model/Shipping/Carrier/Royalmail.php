@@ -130,25 +130,42 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
 
     public function getMethods($name=null) {
         $codes = array(
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/first-class-mail/prices
                 'letter' => 'Letter',
                 'largeletter' => 'Large Letter',
+                
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/second-class-mail/prices
                 'secondclass' => 'Second Class Packet',
                 'secondclassrecordedsignedfor' => 'Second Class Packet (Recorded Signed for)',
+                
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/first-class-mail/prices
                 'firstclass' => 'First Class Packet',
                 'firstclassrecordedsignedfor' => 'First Class Packet (Recorded Signed for)',
+                
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/standard-parcels/prices
                 'standardparcel' => 'Standard Parcel (Up to 46GBP Insurance)',
                 'standardparcel100' => 'Standard Parcel (Up to 100GBP Insurance)',
                 'standardparcel250' => 'Standard Parcel (Up to 250GBP Insurance)',
                 'standardparcel500' => 'Standard Parcel (Up to 500GBP Insurance)',
+                
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/special-delivery-next-day/prices
                 'specialdeliverynextday500' => 'Special Delivery Next Day (Up to 500GBP Insurance)',
                 'specialdeliverynextday1000' => 'Special Delivery Next Day (Up to 1,000GBP Insurance)',
                 'specialdeliverynextday2500' => 'Special Delivery Next Day (Up to 2,500GBP Insurance)',
+                
+                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/special-delivery-9am/prices
                 'specialdelivery9am50' => 'Special Delivery 9.00 am (Up to 50GBP Insurance)',
                 'specialdelivery9am1000' => 'Special Delivery 9.00 am (Up to 1,000GBP Insurance)',
                 'specialdelivery9am2500' => 'Special Delivery 9.00 am (Up to 2,500GBP Insurance)',
+                
+                // @see http://www.royalmail.com/delivery/delivery-options-international/airmail/prices
                 'airmail' => 'Airmail',
+                
+                // @see http://www.royalmail.com/delivery/delivery-options-international/airsure/prices
                 'airsure' => 'Airsure (Up to 41GBP Insurance)',
                 'airsureinsurance' => 'Airsure (Up to 250GBP/500GBP Insurance)',
+                
+                // @see http://www.royalmail.com/delivery/delivery-options-international/international-signed/prices
                 'internationalsignedfor' => 'International Signed For',
                 'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
         );
