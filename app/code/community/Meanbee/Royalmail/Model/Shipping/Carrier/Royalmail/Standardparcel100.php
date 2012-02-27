@@ -18,15 +18,11 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel100
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
-        $rates = parent::getRates();
-
-        for ($i = 0; $i < count($rates); $i++) {
-            $rates[$i]['cost'] += 1;
-        }
-
+        $rates = $this->_loadCsv('standardparcel100');
+        
         if ($this->_getCountry() == 'GB') {
             return $rates;
         }
@@ -35,7 +31,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel100
     }
 
     protected function _getMinimumCartTotal() {
-        return 36.01;
+        return 46.01;
     }
 
     protected function _getMaximumCartTotal() {

@@ -31,6 +31,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel
     }
 
     protected function _getMaximumCartTotal() {
-        return 36.00;
+        return 46.00;
     }
 }

@@ -18,15 +18,11 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel500
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Standardparcel {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
-        $rates = parent::getRates();
-
-        for ($i = 0; $i < count($rates); $i++) {
-            $rates[$i]['cost'] += 3.50;
-        }
-
+        $rates = $this->_loadCsv('standardparcel500');
+        
         if ($this->_getCountry() == 'GB') {
             return $rates;
         }
