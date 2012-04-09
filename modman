@@ -1,2 +1,4 @@
 app/code/community/Meanbee/Royalmail app/code/community/Meanbee/Royalmail
 app/etc/modules/* app/etc/modules/
+
+phpunit.xml meanbee_royalmail_phpunit.xml

@@ -1,0 +1,16 @@
+<phpunit>
+    <testsuite name="Meanbee_Royalmail">
+        <file>UnitTests.php</file>
+    </testsuite>
+    <logging>
+        <log type="coverage-html" target="coverage/meanbee/royalmail"/>
+    </logging>
+    <filter>
+       <whitelist>
+           <directory suffix=".php">app/code/community/Meanbee/Royalmail</directory>
+           <exclude>
+               <directory suffix=".php">app/code/community/Meanbee/Royalmail/Test</directory>
+           </exclude>
+       </whitelist>
+    </filter>
+</phpunit>

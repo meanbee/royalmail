@@ -43,7 +43,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsureinsurance
             return null;
         }
 
-        return $rate + $this->_extraCharge;
+        return $rate;
     }
 
     protected function _getMinimumCartTotal() {

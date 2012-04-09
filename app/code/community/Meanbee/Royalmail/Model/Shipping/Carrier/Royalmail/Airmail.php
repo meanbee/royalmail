@@ -69,9 +69,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
                 case 'rw2':
                     return $this->_getRw2Rates();
                 case 'rw1':
-                default:
                     return $this->_getRw1Rates();
             }
+
+            Mage::throwException('Invalid postage area');
         }
 
         return null;
@@ -113,9 +114,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
             case 'rw1':
                 return 1.22;
             case 'rw2':
-            default:
                 return 1.28;
         }
+
+        Mage::throwException('Invalid postage area');
     }
 
     protected function getPostageArea() {
