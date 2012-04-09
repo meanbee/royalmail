@@ -40,10 +40,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
     protected function calculateRate($weight) {
         // Each additional 2kg or part thereof +350p
         $rates = $this->getRates();
-
-        if ($weight > 20000) {
-            return null;
-        }
         
         if ($rates == null) {
             return null;
