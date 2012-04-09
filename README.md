@@ -12,3 +12,7 @@ The main reasons we've put the repository up here is to:
 Enjoy!
 
 -- The Meanbee Team
+
+# TODO
+
+* We've not got the update prices for Standard Parcel's insurance options yet, so haven't updated those.
