@@ -31,14 +31,14 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
     }
 
     /**
-     * Any packages over 2kg will be sent here.  We can then add £2.80 to
+     * Any packages over 2kg will be sent here.  We can then add Â£3.50 to
      * each 2kg it is over.
      *
      * @param float Package weight
      * @return float Cost of delivery
      */
     protected function calculateRate($weight) {
-        // Each additional 2kg or part thereof +305p
+        // Each additional 2kg or part thereof +350p
         $rates = $this->getRates();
 
         if ($weight > 20000) {
@@ -53,7 +53,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
 
         $weight -= $last_rate['upper'];
 
-        $calculated = 3.05 * ceil($weight / 2000);
+        $calculated = 3.50 * ceil($weight / 2000);
 
         return $last_rate['cost'] + $calculated;
     }
