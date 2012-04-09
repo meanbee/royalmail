@@ -70,7 +70,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
                     return $this->_getRw2Rates();
                 case 'rw1':
                 default:
-                    return $this->_getRwRates1();
+                    return $this->_getRw1Rates();
             }
         }
 
@@ -111,7 +111,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
             case 'eu':
                 return 0.60;
             case 'rw1':
-                return 1.08;
+                return 1.22;
             case 'rw2':
             default:
                 return 1.28;

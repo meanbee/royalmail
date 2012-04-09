@@ -88,4 +88,12 @@
             </royalmail>
         </carriers>
     </default>
+
+    <phpunit>
+        <suite>
+            <modules>
+                <Meanbee_Royalmail />
+            </modules>
+        </suite>
+    </phpunit>
 </config>

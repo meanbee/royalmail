@@ -22,17 +22,16 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
 
     protected function getRates() {
         $rates = parent::getRates();
-        $country = strtoupper($this->_getCountry());
 
         if ($rates == null) {
             return null;
         }
 
         if ($this->getPostageArea() == 'eu') {
-            return $this->getRates('airsure_eu');
+            return $this->_loadCsv('airsure_eu');
         } else if ($this->_validAirsureCountry()) {
             for ($i = 0; $i < count($rates); $i++) {
-                $rates[$i]['cost'] += $this->_extraCharge;
+                $rates[$i]['cost'] += $this->_getExtraCharge();
             }
 
             return $rates;
@@ -43,13 +42,28 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
 
 
     protected function calculateRate($weight) {
-        $rate = parent::calculateRate($weight);
-        
-        if ($this->_validAirsureCountry() && $rate != null) {
-            return $rate + $this->_extraCharge;
-        } else {
-            return null;
+        if ($weight <= 2000) {
+            if ($this->getPostageArea() == 'eu') {
+                $rates = $this->getRates();
+
+                if ($rates == null) {
+                    return null;
+                }
+
+                $last_rate = $rates[count($rates) - 1];
+
+                $weight -= $last_rate['upper'];
+
+                $calculated = $this->_getExtraCharge() * ceil($weight / 100);
+
+                return $last_rate['cost'] + $calculated;
+
+            } else if ($this->_validAirsureCountry()) {
+                return parent::calculateRate($weight);
+            }
         }
+
+        return null;
     }
 
     protected function _getExtraCharge() {
@@ -62,7 +76,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
 
     protected function _validAirsureCountry() {
         $country = strtoupper($this->_getCountry());
-
 
         switch($country) {
             case 'AD': case 'AT': case 'BE': case 'DK': case 'FO': case 'FI': case 'FR': case 'DE':
