@@ -36,8 +36,19 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
      *
      * @return array rates
      */
-    protected function _getRwRates() {
-        $rates_rw = $this->_loadCsv("airmail_rw");
+    protected function _getRw1Rates() {
+        $rates_rw = $this->_loadCsv("airmail_rw1");
+
+        return $rates_rw;
+    }
+
+    /**
+     * Rest of the World Rates
+     *
+     * @return array rates
+     */
+    protected function _getRw2Rates() {
+        $rates_rw = $this->_loadCsv("airmail_rw2");
 
         return $rates_rw;
     }
@@ -52,20 +63,15 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
         $country = strtoupper($this->_getCountry());
 
         if ($country != 'GB') {
-            switch ($country) {
-                case 'AL': case 'AD': case 'AM': case 'AT': case 'AZ': case 'BY': case 'BE':
-                case 'BA': case 'BG': case 'HR': case 'CY': case 'CZ': case 'DK': case 'EE':
-                case 'FO': case 'FI': case 'FR': case 'GE': case 'DE': case 'GI': case 'GR':
-                case 'GL': case 'HU': case 'IS': case 'IE': case 'IT': case 'KZ': case 'KG':
-                case 'LV': case 'LI': case 'LT': case 'LU': case 'MK': case 'MT': case 'MD':
-                case 'MC': case 'NL': case 'NO': case 'PL': case 'PT': case 'RO': case 'RU':
-                case 'SM': case 'SK': case 'SI': case 'ES': case 'SE': case 'CH': case 'TJ':
-                case 'TR': case 'TM': case 'UA': case 'UZ': case 'VA':
+            switch ($this->getPostageArea()) {
+                case 'eu':
                     return $this->_getEuRates();
-                    break;
+                case 'rw2':
+                    return $this->_getRw2Rates();
+                case 'rw1':
+                default:
+                    return $this->_getRwRates1();
             }
-
-            return $this->_getRwRates();
         }
 
         return null;
@@ -95,9 +101,21 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
 
         $weight -= $last_rate['upper'];
 
-        $calculated = 0.60 * ceil($weight / 100);
+        $calculated = $this->_getAdditionalWeightCharge() * ceil($weight / 100);
 
         return $last_rate['cost'] + $calculated;
+    }
+
+    protected function _getAdditionalWeightCharge() {
+        switch ($this->getPostageArea()) {
+            case 'eu':
+                return 0.60;
+            case 'rw1':
+                return 1.08;
+            case 'rw2':
+            default:
+                return 1.28;
+        }
     }
 
     protected function getPostageArea() {
@@ -114,10 +132,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
                 case 'SM': case 'SK': case 'SI': case 'ES': case 'SE': case 'CH': case 'TJ':
                 case 'TR': case 'TM': case 'UA': case 'UZ': case 'VA':
                     return 'eu';
-                    break;
+                case 'AU': case 'NZ': case 'PG':
+                    return 'rw2';
+                default:
+                    return 'rw1';
             }
-
-            return 'rw';
         }
 
         return null;
