@@ -27,16 +27,17 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
             return null;
         }
 
-        if ($this->getPostageArea() == 'eu') {
-            return $this->_loadCsv('airsure_eu');
-        } else if ($this->_validAirsureCountry()) {
-            for ($i = 0; $i < count($rates); $i++) {
-                $rates[$i]['cost'] += $this->_getExtraCharge();
+        if ($this->_validAirsureCountry()) {
+            if ($this->getPostageArea() == 'eu') {
+                return $this->_loadCsv('airsure_eu');
+            } else {
+                for ($i = 0; $i < count($rates); $i++) {
+                  $rates[$i]['cost'] += $this->_getExtraCharge();
+                }
+                return $rates;
             }
-
-            return $rates;
         } else {
-            return null;
+          return null;
         }
     }
 
@@ -79,8 +80,8 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
 
         switch($country) {
             case 'AD': case 'AT': case 'BE': case 'DK': case 'FO': case 'FI': case 'FR': case 'DE':
-            case 'IS': case 'LI': case 'LU': case 'MC': case 'NL': case 'PT': case 'IE': case 'SK':
-            case 'ES': case 'SE': case 'CH':
+            case 'IS': case 'LI': case 'LU': case 'MC': case 'NL': case 'PT': case 'IE': case 'ES':
+            case 'SE': case 'CH':
 
             case 'BR': case 'CA': case 'HK': case 'MY': case 'SG':
             case 'US':
