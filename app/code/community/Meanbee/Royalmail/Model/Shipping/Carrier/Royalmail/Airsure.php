@@ -27,16 +27,17 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure
             return null;
         }
 
-        if ($this->getPostageArea() == 'eu') {
-            return $this->_loadCsv('airsure_eu');
-        } else if ($this->_validAirsureCountry()) {
-            for ($i = 0; $i < count($rates); $i++) {
-                $rates[$i]['cost'] += $this->_getExtraCharge();
+        if ($this->_validAirsureCountry()) {
+            if ($this->getPostageArea() == 'eu') {
+                return $this->_loadCsv('airsure_eu');
+            } else {
+                for ($i = 0; $i < count($rates); $i++) {
+                  $rates[$i]['cost'] += $this->_getExtraCharge();
+                }
+                return $rates;
             }
-
-            return $rates;
         } else {
-            return null;
+          return null;
         }
     }
 
