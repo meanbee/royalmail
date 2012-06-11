@@ -73,7 +73,7 @@
         <carriers>
             <royalmail>
                 <active>0</active>
-                <model>meanbee_royalmail_model_shipping_carrier_royalmail</model>
+                <model>royalmail/shipping_carrier_royalmail</model>
                 <allowed_methods></allowed_methods>
                 <weight_unit>g</weight_unit>
                 <rounding_rule>none</rounding_rule>

@@ -23,7 +23,7 @@
         <carriers>
             <groups>
                 <royalmail translate="label" module="royalmail">
-                    <label>Royal Mail (Powered by Meanbee)</label>
+                    <label>Royal Mail Shipping Methods (Developed by Meanbee)</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>20</sort_order>
                     <show_in_default>1</show_in_default>
@@ -32,9 +32,7 @@
                     <comment>
                         <![CDATA[
                             <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
-                                This module was developed by <a href="http://www.meanbee.com" target="_blank">Meanbee Internet Solutions</a> - we specialise in developing useful Magento modules for the UK market.
-                                If you require any support, please contact us at <a href="mailto:support@meanbee.com">support@meanbee.com</a> or <a href="http://getsatisfaction.com/meanbee/products/meanbee_postcode_address_autofill_magento_module" target="_blank">getsatifaction</a>.  We'd prefer getsatisfaction over email, and email over the Magento forums and private messages.
-                                We have a <a href="http://meanbee.com/newsletter" target="_blank">newsletter</a>, use <a href="http://twitter.com/meanbeeuk" target="_blank">twitter</a>, make <a href="http://www.meanbee.com/products" target="_blank">other modules</a> and <a href="http://www.meanbee.com/portfolio/magento-royalmail-module" target="_blank">accept donations</a>.  If this module helping you sell online please consider rating it at the <a href="http://www.magentocommerce.com/extension/480">module homepage</a> on the MagentoCommerce.com site.
+                                This module is developed and maintained by <a href="http://www.meanbee.com" target="_blank">Meanbee</a>.  If you're a developer and would like to contribue to this module, get involved on <a href="https://github.com/meanbee/royalmail">GitHub</a>!
                             </div>
                         ]]>
                     </comment>
@@ -58,7 +56,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Select the unit that your store uses to designate the weight of each item</comment>
+                            <comment>Select the unit that your store uses to designate the weight of each item.  We'll use this to work out which shipping methods are applicable to the customer, based on their total cart weight.</comment>
                         </weight_unit>
 
                         <rounding_rule translate="label">
