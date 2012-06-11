@@ -180,7 +180,7 @@ abstract class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
     }
     
     protected function _loadCsv($file) {
-        $filename = "app/code/community/Meanbee/Royalmail/data/{$file}.csv";
+        $filename = Mage::getBaseDir('code') . "/community/Meanbee/Royalmail/data/{$file}.csv";
         $parser = new Varien_File_Csv();
 
         if (!file_exists($filename)) {

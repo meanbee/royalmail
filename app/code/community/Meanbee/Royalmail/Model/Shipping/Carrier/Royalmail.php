@@ -167,7 +167,9 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 
                 // @see http://www.royalmail.com/delivery/delivery-options-international/international-signed/prices
                 'internationalsignedfor' => 'International Signed For',
-                'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)'
+                'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)',
+
+                'surfacemail' => 'Surface Mail'
         );
         
         if ($name !== null) {
