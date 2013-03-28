@@ -18,31 +18,13 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsignedfor
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure {
 
-    private $_extraCharge = 5.15;
-
-    protected function getRates() {
-        $rates = parent::getRates();
-
-        if ($rates == null) {
-            return null;
-        }
-
-        for ($i = 0; $i < count($rates); $i++) {
-            $rates[$i]['cost'] += $this->_extraCharge;
-        }
-
-        return $rates;
+    protected function _getExtraCharge() {
+        return 5.30;
     }
 
-    protected function calculateRate($weight) {
-        $rate = parent::calculateRate($weight);
-
-        if ($rate == null) {
-            return null;
-        }
-
-        return $rate;
+    protected function _getMaximumCartTotal() {
+        return 250;
     }
 }

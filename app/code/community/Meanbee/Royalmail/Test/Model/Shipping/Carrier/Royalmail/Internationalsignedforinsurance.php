@@ -28,10 +28,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testEuropeUpperLimit() {
         $this->assertEquals(
-            13.82 + 5.15 + 2.60,
+            13.65 + 7.90,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                1.00,
+                350,
                 'FR'
             ))
         );
@@ -39,7 +39,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                1.00,
+                350,
                 'FR'
             ))
         );
@@ -47,10 +47,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testRestOfWorld1UpperLimit() {
         $this->assertEquals(
-            26.28 + 5.15 + 2.60,
+            23.40 + 7.90,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                1.00,
+                350,
                 'US'
             ))
         );
@@ -58,7 +58,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                1.00,
+                350,
                 'US'
             ))
         );
@@ -66,10 +66,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testRestOfWorld2UpperLimit() {
         $this->assertEquals(
-            27.46 + 5.15 + 2.60,
+            24.65 + 7.90,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                1.00,
+                350,
                 'NZ'
             ))
         );
@@ -77,7 +77,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                1.00,
+                350,
                 'NZ'
             ))
         );
