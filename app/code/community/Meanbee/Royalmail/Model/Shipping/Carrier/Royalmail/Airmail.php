@@ -78,48 +78,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
         return null;
     }
 
-    /**
-     * @param $weight
-     * @return null|float
-     */
-    protected function calculateRate($weight) {
-        $rates = $this->getRates();
-
-        /**
-         * Maxium package weight is 2kg
-         *
-         * @see http://www.royalmail.com/sites/default/files/Royal_Mail_Delivery_and_Collection_Services_Price_Guide_April2012.pdf
-         */
-        if ($weight > 2000) {
-            return null;
-        }
-
-        if ($rates == null) {
-            return null;
-        }
-
-        $last_rate = $rates[count($rates) - 1];
-
-        $weight -= $last_rate['upper'];
-
-        $calculated = $this->_getAdditionalWeightCharge() * ceil($weight / 100);
-
-        return $last_rate['cost'] + $calculated;
-    }
-
-    protected function _getAdditionalWeightCharge() {
-        switch ($this->getPostageArea()) {
-            case 'eu':
-                return 0.60;
-            case 'rw1':
-                return 1.22;
-            case 'rw2':
-                return 1.28;
-        }
-
-        Mage::throwException('Invalid postage area');
-    }
-
     protected function getPostageArea() {
         $country = strtoupper($this->_getCountry());
 
