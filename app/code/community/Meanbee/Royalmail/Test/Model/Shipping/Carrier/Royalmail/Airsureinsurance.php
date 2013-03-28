@@ -19,7 +19,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 50,
-                50.00,
+                100.00,
                 'GB'
             )),
             'Airmail is not allowed for UK deliveries'
@@ -28,10 +28,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
 
     public function testEuropeUpperLimit() {
         $this->assertEquals(
-            22.58 + 2.50,
+            13.65 + 7.60,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                50.00,
+                100.00,
                 'FR'
             ))
         );
@@ -39,7 +39,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                50.00,
+                100.00,
                 'FR'
             ))
         );
@@ -47,10 +47,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
 
     public function testRestOfWorld1UpperLimit() {
         $this->assertEquals(
-            26.28 + 5.40 + 2.50,
+            23.40 + 8,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                50.00,
+                100.00,
                 'US'
             ))
         );
@@ -58,7 +58,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                50.00,
+                100.00,
                 'US'
             ))
         );
@@ -66,10 +66,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
 
     public function testRestOfWorld2UpperLimit() {
         $this->assertEquals(
-            27.46 + 5.40 + 2.50,
+            24.65 + 8,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
-                50.00,
+                100.00,
                 'NZ'
             ))
         );
@@ -77,7 +77,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airsureinsurance e
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 2001,
-                50.00,
+                100.00,
                 'NZ'
             ))
         );
