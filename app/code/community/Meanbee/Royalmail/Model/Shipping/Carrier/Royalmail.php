@@ -139,12 +139,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 'firstclass' => 'First Class Parcel',
                 'firstclassrecordedsignedfor' => 'First Class Parcel (Signed for)',
 
-                // @see http://www.royalmail.com/delivery/business-delivery-options-uk/standard-parcels/prices
-                'standardparcel' => 'Standard Parcel (Up to 46GBP Insurance)',
-                'standardparcel100' => 'Standard Parcel (Up to 100GBP Insurance)',
-                'standardparcel250' => 'Standard Parcel (Up to 250GBP Insurance)',
-                'standardparcel500' => 'Standard Parcel (Up to 500GBP Insurance)',
-
                 'specialdeliverynextday500' => 'Special Delivery Guaranteed by 1pm (Up to 500GBP Insurance)',
                 'specialdeliverynextday1000' => 'Special Delivery Guaranteed by 1pm (Up to 1,000GBP Insurance)',
                 'specialdeliverynextday2500' => 'Special Delivery Guaranteed by 1pm (Up to 2,500GBP Insurance)',
