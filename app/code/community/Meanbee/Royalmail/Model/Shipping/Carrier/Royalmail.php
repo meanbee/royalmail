@@ -45,7 +45,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         if (count($this->getAllowedMethods()) > 0) {
             foreach ($this->getAllowedMethods() as $key => $value) {
                 $obj = Mage::getModel("royalmail/shipping_carrier_royalmail_$key");
-                
+
                 if ($obj === false) {
                     Mage::log("Error loading royal mail: $key");
                     continue;
@@ -123,8 +123,12 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         $allowed = explode(',', $this->getConfigData('allowed_methods'));
         $arr = array();
         foreach ($allowed as $k) {
-            $arr[$k] = $this->getMethods($k);
+            $method_name = $this->getMethods($k);
+            if ($method_name) {
+                $arr[$k] = $method_name;
+            }
         }
+
         return $arr;
     }
 
