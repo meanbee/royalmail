@@ -1,4 +1,4 @@
-gd<?php
+<?php
 /**
  * NOTICE OF LICENSE
  *
