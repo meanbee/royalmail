@@ -28,7 +28,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airmail extends Me
 
     public function testEuropeUpperLimit() {
         $this->assertEquals(
-            13.82,
+            13.65,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
                 1.00,
@@ -47,7 +47,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airmail extends Me
 
     public function testRestOfWorld1UpperLimit() {
         $this->assertEquals(
-            26.28,
+            23.40,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
                 1.00,
@@ -66,7 +66,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Airmail extends Me
 
     public function testRestOfWorld2UpperLimit() {
         $this->assertEquals(
-            27.46,
+            24.65,
             $this->_model->getCost($this->_getRateRequest(
                 2000,
                 1.00,

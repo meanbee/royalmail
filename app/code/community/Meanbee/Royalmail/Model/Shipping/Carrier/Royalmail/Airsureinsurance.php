@@ -20,34 +20,16 @@
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsureinsurance
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure {
 
-    private $_extraCharge = 2.50;
-
-    protected function getRates() {
-        $rates = parent::getRates();
-
-        if ($rates == null) {
-            return null;
+    protected function _getExtraCharge() {
+        if ($this->getPostageArea() == 'eu') {
+            return 7.60;
+        } else {
+            return 8.00;
         }
-
-        for ($i = 0; $i < count($rates); $i++) {
-            $rates[$i]['cost'] += $this->_extraCharge;
-        }
-
-        return $rates;
-    }
-
-    protected function calculateRate($weight) {
-        $rate = parent::calculateRate($weight);
-
-        if ($rate == null) {
-            return null;
-        }
-
-        return $rate;
     }
 
     protected function _getMinimumCartTotal() {
-        return 36.01;
+        return 50.01;
     }
 
     protected function _getMaximumCartTotal() {

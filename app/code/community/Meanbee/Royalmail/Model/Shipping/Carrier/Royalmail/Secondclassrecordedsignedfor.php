@@ -20,7 +20,7 @@
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass {
 
-    private $_extraCharge = 0.95;
+    private $_extraCharge = 1.10;
 
     protected function getRates() {
         $rates = parent::getRates();
