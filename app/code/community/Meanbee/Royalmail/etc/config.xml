@@ -85,6 +85,7 @@
                 <specificcountry>GB</specificcountry>
                 <showmethod>0</showmethod>
                 <sort_order>0</sort_order>
+                <parcel_type>small</parcel_type>
             </royalmail>
         </carriers>
     </default>
