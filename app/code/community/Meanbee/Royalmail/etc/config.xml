@@ -22,7 +22,7 @@
 <config>
     <modules>
         <Meanbee_Royalmail>
-            <version>2.5.0</version>
+            <version>2.5.1</version>
             <depends>
                 <Mage_Shipping />
             </depends>
@@ -85,6 +85,7 @@
                 <specificcountry>GB</specificcountry>
                 <showmethod>0</showmethod>
                 <sort_order>0</sort_order>
+                <parcel_type>small</parcel_type>
             </royalmail>
         </carriers>
     </default>

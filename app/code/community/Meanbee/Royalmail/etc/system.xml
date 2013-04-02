@@ -71,6 +71,17 @@
                             <comment>Select the rule that you would like to apply to the price calculate by the module before displaying it to the customer</comment>
                         </rounding_rule>
 
+                        <parcel_size translate="label">
+                            <label>First / Second Class Parcel Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>royalmail/parcelsize</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select the parcel size you'd like to use for calculating the price of First and Second class parcels.  If you select "Small", then the "Small Parcel" price will be used up until 2kg.  After 2kg the medium parcel price will always be used.</comment>
+                        </parcel_size>
+
                         <allowed_methods translate="label">
                             <label>Allowed methods</label>
                             <frontend_type>multiselect</frontend_type>
@@ -119,6 +130,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </specificerrmsg>
+
                         <sallowspecific translate="label">
                             <label>Ship to applicable countries</label>
                             <frontend_type>select</frontend_type>

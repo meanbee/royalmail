@@ -21,12 +21,24 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     public function getRates() {
-        $rates = $this->_loadCsv('firstclass');
+        $rates = $this->_loadCsv($this->_getRateFile());
 
         if ($this->_getCountry() == 'GB') {
             return $rates;
         }
 
         return null;
+    }
+
+    protected function _getRateFile() {
+        $weight = $this->_getWeight();
+
+        if ($weight <= 2000) {
+            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
+                return 'firstclass_small';
+            }
+        }
+
+        return 'firstclass_medium';
     }
 }
