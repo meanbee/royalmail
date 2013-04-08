@@ -83,16 +83,52 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail
 
         if ($country != 'GB') {
             switch ($country) {
-                case 'AL': case 'AD': case 'AM': case 'AT': case 'AZ': case 'BY': case 'BE':
-                case 'BA': case 'BG': case 'HR': case 'CY': case 'CZ': case 'DK': case 'EE':
-                case 'FO': case 'FI': case 'FR': case 'GE': case 'DE': case 'GI': case 'GR':
-                case 'GL': case 'HU': case 'IS': case 'IE': case 'IT': case 'KZ': case 'KG':
-                case 'LV': case 'LI': case 'LT': case 'LU': case 'MK': case 'MT': case 'MD':
-                case 'MC': case 'NL': case 'NO': case 'PL': case 'PT': case 'RO': case 'RU':
-                case 'SM': case 'SK': case 'SI': case 'ES': case 'SE': case 'CH': case 'TJ':
-                case 'TR': case 'TM': case 'UA': case 'UZ': case 'VA':
+                /**
+                 * Countries defined by Royal Mail, but not by Magento.
+                 *
+                 * - Azores
+                 * - Balearic Islands
+                 * - Canary Islands
+                 * - Corsica
+                 * - Kosovo
+                 * - Madeira
+                 *
+                 * - Belau
+                 * - Norwegian Antarctic Territory
+                 *
+                 * Notes: Serbia and Montenegro = Serbia = Montenegro
+                 * Notes: Cocos Islands = Keeling = COCOS (KEELING) ISLANDS
+                 * Notes: MACAU = Macao
+                 */
+                case 'AL': case 'AD': case 'AM': case 'AT': case 'AZ':
+                case 'BY': case 'BE': case 'BA': case 'BG':
+                case 'HR': case 'CY': case 'CZ':
+                case 'DK':
+                case 'EE':
+                case 'FO': case 'FI': case 'FR':
+                case 'GE': case 'DE': case 'GI': case 'GR': case 'GL':
+                case 'HU':
+                case 'IS': case 'IE': case 'IT':
+                case 'KZ': case 'KG':
+                case 'LV': case 'LI': case 'LT': case 'LU':
+                case 'MK': case 'MT': case 'MD': case 'MC': case 'CS':
+                case 'NL': case 'NO':
+                case 'PL': case 'PT':
+                case 'RO': case 'RU':
+                case 'SM': case 'SK': case 'SI': case 'ES': case 'SE': case 'CH':
+                case 'TJ': case 'TR': case 'TM': case 'UA': case 'UZ':
+                case 'VA':
                     return 'eu';
-                case 'AU': case 'NZ': case 'PG':
+                case 'AU':
+                case 'IO':
+                case 'CX': case 'CC': case 'CK':
+                case 'FJ': case 'PF': case 'TF':
+                case 'KI':
+                case 'MO':
+                case 'NR': case 'NC': case 'NZ': case 'NU': case 'NF':
+                case 'PG': case 'PN':
+                case 'SG': case 'SB':
+                case 'TK': case 'TO': case 'TV': case 'AS': case 'WS':
                     return 'rw2';
                 default:
                     return 'rw1';
