@@ -18,7 +18,7 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsignedfor
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airsure {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Airmail {
 
     protected function _getExtraCharge() {
         return 5.30;
