@@ -34,11 +34,12 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
         $weight = $this->_getWeight();
 
         if ($weight <= 2000) {
-            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::MEDIUM) {
-                return 'firstclass_medium';
+            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL ||
+                Mage::getStoreConfig('carriers/royalmail/parcel_size') == "") {
+                return 'firstclass_small';
             }
         }
 
-        return 'firstclass_small';
+        return 'firstclass_medium';
     }
 }
