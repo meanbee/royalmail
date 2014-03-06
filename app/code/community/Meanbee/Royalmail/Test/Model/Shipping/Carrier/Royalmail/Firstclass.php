@@ -40,7 +40,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Firstclass extends
 
     public function testUpperLimit() {
         $this->assertEquals(
-            32.40,
+            33.40,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     20000,

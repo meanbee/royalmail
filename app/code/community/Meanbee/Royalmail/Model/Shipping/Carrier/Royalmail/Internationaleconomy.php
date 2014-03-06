@@ -13,24 +13,17 @@
  *
  * @category   Meanbee
  * @package    Meanbee_Royalmail
- * @copyright  Copyright (c) 2008 Meanbee Internet Solutions (http://www.meanbee.com)
+ * @copyright  Copyright (c) 2014 Meanbee Internet Solutions (http://www.meanbee.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday500
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaleconomy
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-    protected function getRates() {
-        $rates = $this->_loadCsv('nextday500');
-
-        if ($this->_getCountry() == 'GB') {
-            return $rates;
+    public function getRates() {
+        if($this->_getCountry() !== 'GB') {
+            return $this->_loadCsv('internationaleconomy');
         }
-
         return null;
-    }
-
-    protected function _getMaximumCartTotal() {
-        return 500;
     }
 }

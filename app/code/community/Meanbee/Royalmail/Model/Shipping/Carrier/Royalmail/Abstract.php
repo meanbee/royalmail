@@ -190,7 +190,6 @@ abstract class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
         $data = $parser->getData($filename);
         
         $return = array();
-        
         if (count($data)) {
             foreach ($data as $key => $value) {
                 list($upper, $cost) = $value;
