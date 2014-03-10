@@ -19,6 +19,33 @@
 
 class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
 
+    const WORLD_ZONE_EU = 'eu';
+    const WORLD_ZONE_NONEU = 'noneu';
+    const WORLD_ZONE_ONE = 'wz1';
+    const WORLD_ZONE_TWO = 'wz2';
+
+    protected $_worldZoneEu = array(
+        'DK', 'EE', 'LV', 'AT', 'FI',
+        'LT', 'SK', 'FR', 'LU', 'SI',
+        'ES', 'DE', 'SE', 'GI', 'MT',
+        'BE', 'GR', 'MC', 'BG', 'HU',
+        'NL', 'IE', 'HR', 'IT', 'PL',
+        'CY', 'PT', 'CZ', 'RO');
+    protected  $_worldZoneNonEu = array(
+        'SM', 'AM', 'FO', 'LI', 'RS',
+        'XK', 'KZ', 'VA', 'NO', 'UZ',
+        'UA', 'ME', 'TM', 'IS', 'TR',
+        'MD', 'TJ', 'BA', 'GL', 'CH',
+        'BY', 'GE', 'MK', 'AZ', 'KG',
+        'RU', 'AD', 'AL');
+    protected  $_worldZone2 = array(
+        'AU', 'PW', 'IO', 'CX', 'CC',
+        'CK', 'FJ', 'PF', 'TF', 'KI',
+        'MO', 'NR', 'NC', 'NZ', 'NU',
+        'NF', 'PG', 'LA', 'PN', 'SG',
+        'SB', 'TK', 'TO', 'TV', 'AS',
+        'WS');
+
     public function addAdditionalCharges($rates, $charge, $weight, $chargePer = 250) {
         for($i = 0; $i < count($rates); $i++) {
             if($weight > $rates[$i]['upper']) {
@@ -41,45 +68,14 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
     public function getWorldZone($countryCode) {
         $country = strtoupper($countryCode);
         if ($country != 'GB') {
-            switch ($country) {
-                /**
-                 * Countries defined by Royal Mail, but not by Magento.
-                 * - Azores
-                 * - Balearic Islands
-                 * - Canary Islands
-                 * - Corsica
-                 * - Kosovo
-                 * - Madeira
-                 * - Belau
-                 * - Norwegian Antarctic Territory
-                 *
-                 * Notes: Serbia and Montenegro = Serbia = Montenegro
-                 * Notes: Cocos Islands = Keeling = COCOS (KEELING) ISLANDS
-                 * Notes: MACAU = Macao
-                 */
-                case 'DK': case 'EE': case 'LV': case 'AT': case 'FI':
-                case 'LT': case 'SK': case 'FR': case 'LU': case 'SI':
-                case 'ES': case 'DE': case 'SE': case 'GI': case 'MT':
-                case 'BE': case 'GR': case 'MC': case 'BG': case 'HU':
-                case 'NL': case 'IE': case 'HR': case 'IT': case 'PL':
-                case 'CY': case 'PT': case 'CZ': case 'RO':
-                    return 'eu';
-                case 'SM': case 'AM': case 'FO': case 'LI': case 'RS':
-                case 'XK': case 'KZ': case 'VA': case 'NO': case 'UZ':
-                case 'UA': case 'ME': case 'TM': case 'IS': case 'TR':
-                case 'MD': case 'TJ': case 'BA': case 'GL': case 'CH':
-                case 'BY': case 'GE': case 'MK': case 'AZ': case 'KG':
-                case 'RU': case 'AD': case 'AL':
-                    return 'noneu';
-                case 'AU': case 'PW': case 'IO': case 'CX': case 'CC':
-                case 'CK': case 'FJ': case 'PF': case 'TF': case 'KI':
-                case 'MO': case 'NR': case 'NC': case 'NZ': case 'NU':
-                case 'NF': case 'PG': case 'LA': case 'PN': case 'SG':
-                case 'SB': case 'TK': case 'TO': case 'TV': case 'AS':
-                case 'WS':
-                    return 'wz2';
-                default:
-                    return 'wz1';
+            if (in_array($country, $this->_worldZoneEu)) {
+                return self::WORLD_ZONE_EU;
+            } else if (in_array($country, $this->_worldZoneNonEu)) {
+                return self::WORLD_ZONE_NONEU;
+            } else if (in_array($country, $this->_worldZone2)) {
+                return self::WORLD_ZONE_TWO;
+            } else {
+                return self::WORLD_ZONE_ONE;
             }
         }
         return null;
