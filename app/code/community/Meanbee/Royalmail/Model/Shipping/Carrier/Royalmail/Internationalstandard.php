@@ -38,21 +38,21 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard
             switch($worldZone) {
                 case 'eu':
                 case 'noneu':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $this->_getEuropeRates(),
                         $this->additionalChargeEurope,
                         $weight
                     );
                     break;
                 case 'wz1':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $this->_getWz1Rates(),
                         $this->additionalChargeWz1,
                         $weight
                     );
                     break;
                 case 'wz2':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $this->_getWz2Rates(),
                         $this->additionalChargeWz2,
                         $weight

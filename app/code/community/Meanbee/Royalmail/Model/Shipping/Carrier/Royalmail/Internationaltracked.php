@@ -44,7 +44,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
         if($country != 'GB') {
             switch($worldZone) {
                 case 'eu':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $_helper->addInsuranceCharges(
                             $this->_getEuRates(),
                             $this->additionalInsuranceChargeEu,
@@ -56,7 +56,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
                     );
                     break;
                 case 'noneu':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $_helper->addInsuranceCharges(
                             $this->_getNonEuRates(),
                             $this->additionalInsuranceChargeNonEu,
@@ -68,7 +68,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
                     );
                     break;
                 case 'wz1':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $_helper->addInsuranceCharges(
                             $this->_getWz1Rates(),
                             $this->additionalInsuranceChargeWz1,
@@ -80,7 +80,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
                     );
                     break;
                 case 'wz2':
-                    $rates = $_helper->addAdditionalCharges(
+                    $rates = $_helper->addAdditionalWeightCharges(
                         $_helper->addInsuranceCharges(
                             $this->_getWz2Rates(),
                             $this->additionalInsuranceChargeWz2,

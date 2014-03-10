@@ -46,7 +46,17 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         'SB', 'TK', 'TO', 'TV', 'AS',
         'WS');
 
-    public function addAdditionalCharges($rates, $charge, $weight, $chargePer = 250) {
+    /**
+     * RoyalMail allow weights over their upper limit, up to 5kg, and usually charge per additional 250g.
+     * This is a helper to add those charges onto the rates supplied.
+     *
+     * @param $rates
+     * @param $charge
+     * @param $weight
+     * @param int $chargePer
+     * @return mixed
+     */
+    public function addAdditionalWeightCharges($rates, $charge, $weight, $chargePer = 250) {
         for($i = 0; $i < count($rates); $i++) {
             if($weight > $rates[$i]['upper']) {
                 $additional = ceil(((($weight - $rates[$i]['upper']) / $chargePer) * $charge * 100))/2;
@@ -56,6 +66,16 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         return $rates;
     }
 
+    /**
+     * A simple helper to add the insurance charges on top of the rates supplied.
+     * RoyalMail will compensate an item up to a certain value, but this costs extra for more cover.
+     *
+     * @param $rates
+     * @param $charge
+     * @param $cartTotal
+     * @param int $valueOver
+     * @return mixed
+     */
     public function addInsuranceCharges($rates, $charge, $cartTotal, $valueOver = 50) {
         if($cartTotal > $valueOver) {
             for($i = 0; $i < count($rates); $i++) {
@@ -65,6 +85,13 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         return $rates;
     }
 
+    /**
+     * Figure out what World Zone a country is in, as defined by RoyalMail
+     * Used on International Rates.
+     *
+     * @param $countryCode
+     * @return null|string
+     */
     public function getWorldZone($countryCode) {
         $country = strtoupper($countryCode);
         if ($country != 'GB') {
