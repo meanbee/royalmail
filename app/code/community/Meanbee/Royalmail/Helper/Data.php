@@ -59,7 +59,7 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
     public function addAdditionalWeightCharges($rates, $charge, $weight, $chargePer = 250) {
         for($i = 0; $i < count($rates); $i++) {
             if($weight > $rates[$i]['upper']) {
-                $additional = ceil(((($weight - $rates[$i]['upper']) / $chargePer) * $charge * 100))/2;
+                $additional = ceil(((($weight - $rates[$i]['upper']) / $chargePer) * $charge * 100)) / 100;
                 $rates[$i]['cost'] += $additional;
             }
         }
