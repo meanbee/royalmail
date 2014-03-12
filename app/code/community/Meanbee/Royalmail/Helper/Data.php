@@ -47,7 +47,7 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         'WS');
 
     /**
-     * RoyalMail allow weights over their upper limit, up to 5kg, and usually charge per additional 250g.
+     * RoyalMail allow weights over their upper limit, and usually charge per additional 250g.
      * This is a helper to add those charges onto the rates supplied.
      *
      * @param $rates
