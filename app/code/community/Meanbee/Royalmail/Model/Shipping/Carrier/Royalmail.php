@@ -143,23 +143,15 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 'firstclass' => 'First Class Parcel',
                 'firstclassrecordedsignedfor' => 'First Class Parcel (Signed for)',
 
-                'specialdeliverynextday500' => 'Special Delivery Guaranteed by 1pm (Up to 500GBP Insurance)',
-                'specialdeliverynextday1000' => 'Special Delivery Guaranteed by 1pm (Up to 1,000GBP Insurance)',
-                'specialdeliverynextday2500' => 'Special Delivery Guaranteed by 1pm (Up to 2,500GBP Insurance)',
+                'specialdeliverynextday' => 'Special Delivery Guaranteed by 1pm (Up to 500GBP Insurance)',
 
-                'specialdelivery9am50' => 'Special Delivery Guaranteed by 9am (Up to 50GBP Insurance)',
-                'specialdelivery9am1000' => 'Special Delivery Guaranteed by 9am (Up to 1,000GBP Insurance)',
-                'specialdelivery9am2500' => 'Special Delivery Guaranteed by 9am (Up to 2,500GBP Insurance)',
+                'specialdelivery9am' => 'Special Delivery Guaranteed by 9am (Up to 2,500GBP Insurance)',
 
-                'airmail' => 'Airmail',
-
-                'airsure' => 'Airsure (Up to 41GBP Insurance)',
-                'airsureinsurance' => 'Airsure (Up to 250GBP/500GBP Insurance)',
-
-                'internationalsignedfor' => 'International Signed For',
-                'internationalsignedforinsurance' => 'International Signed For (Up to 500GBP Insurance)',
-
-                'surfacemail' => 'Surface Mail'
+                'internationalstandard' => 'International Standard (up to 5kg)',
+                'internationaltrackedsigned' => 'International Tracked & Signed (Up to 250GBP Compensation)',
+                'internationaltracked' => 'International Tracked (Up to 250GBP Compensation)',
+                'internationalsigned' => 'International Signed (Up to 250GBP Compensation)',
+                'internationaleconomy' => 'International Economy'
         );
         
         if ($name !== null) {
