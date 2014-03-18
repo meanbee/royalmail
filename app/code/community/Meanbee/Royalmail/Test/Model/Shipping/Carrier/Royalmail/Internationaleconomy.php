@@ -1,12 +1,12 @@
 <?php
-class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
-    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor */
+class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationaleconomy extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
+    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaleconomy */
     protected $_model = null;
 
     public function setUp() {
         parent::setUp();
 
-        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_secondclassrecordedsignedfor');
+        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_internationaleconomy');
     }
 
     public function tearDown() {
@@ -15,24 +15,24 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecorde
         $this->_model = null;
     }
 
-    public function testNotAllowedFromFrance() {
+    public function testNotAllowedFromGb() {
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 50,
                 1.00,
-                'FR'
+                'GB'
             ))
         );
     }
 
     public function testMinimalPrice() {
         $this->assertEquals(
-            6.30,
+            2.80,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     50,
                     1.00,
-                    'GB'
+                    'FR'
                 )
             )
         );
@@ -40,21 +40,21 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecorde
 
     public function testUpperLimit() {
         $this->assertEquals(
-            29.65,
+            13.80,
             $this->_model->getCost(
                 $this->_getRateRequest(
-                    20000,
+                    2000,
                     1.00,
-                    'GB'
+                    'FR'
                 )
             )
         );
 
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
-                20001,
+                2001,
                 1.00,
-                'GB'
+                'FR'
             ))
         );
     }

@@ -1,12 +1,12 @@
 <?php
-class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
-    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclassrecordedsignedfor */
+class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalstandard extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
+    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard */
     protected $_model = null;
 
     public function setUp() {
         parent::setUp();
 
-        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_secondclassrecordedsignedfor');
+        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_internationalstandard');
     }
 
     public function tearDown() {
@@ -15,24 +15,35 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecorde
         $this->_model = null;
     }
 
-    public function testNotAllowedFromFrance() {
-        $this->assertNull(
+    public function testAllowedFromFrance() {
+        $this->assertEquals(
+            3.20,
             $this->_model->getCost($this->_getRateRequest(
-                50,
+                100,
                 1.00,
                 'FR'
             ))
         );
     }
 
+    public function testNotAllowedFromUnitedKingdom() {
+        $this->assertNull(
+            $this->_model->getCost($this->_getRateRequest(
+                100,
+                1.00,
+                'GB'
+            ))
+        );
+    }
+
     public function testMinimalPrice() {
         $this->assertEquals(
-            6.30,
+            3.20,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     50,
                     1.00,
-                    'GB'
+                    'FR'
                 )
             )
         );
@@ -40,21 +51,21 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclassrecorde
 
     public function testUpperLimit() {
         $this->assertEquals(
-            29.65,
+            13.85,
             $this->_model->getCost(
                 $this->_getRateRequest(
-                    20000,
+                    2000,
                     1.00,
-                    'GB'
+                    'FR'
                 )
             )
         );
 
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
-                20001,
+                5001,
                 1.00,
-                'GB'
+                'FR'
             ))
         );
     }

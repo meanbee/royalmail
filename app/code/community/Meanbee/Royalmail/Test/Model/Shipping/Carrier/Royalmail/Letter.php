@@ -27,7 +27,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Letter extends Mea
 
     public function testMinimalPrice() {
         $this->assertEquals(
-            0.60,
+            0.62,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     50,
@@ -40,7 +40,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Letter extends Mea
 
     public function testUpperLimit() {
         $this->assertEquals(
-            0.60,
+            0.62,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     100,

@@ -17,11 +17,11 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday1000
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
-        $rates = $this->_loadCsv('nextday1000');
+        $rates = $this->_getRatesCsv();
 
         if ($this->_getCountry() == 'GB') {
             return $rates;
@@ -30,11 +30,15 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday1
         return null;
     }
 
-    protected function _getMinimumCartTotal() {
-        return 500.01;
-    }
-
-    protected function _getMaximumCartTotal() {
-        return 1000;
+    protected function _getRatesCsv() {
+        $total = $this->getCartTotal();
+        if ($total <= 50) {
+            return $this->_loadCsv('nextday500');
+        } else if ($total <= 1000) {
+            return $this->_loadCsv('nextday1000');
+        } else if ($total <= 2500) {
+            return $this->_loadCsv('nextday2500');
+        }
+        return null;
     }
 }
