@@ -24,6 +24,12 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltrackedsig
     protected $additionalInsuranceCharge = 2.50;
 
     public function getRates() {
+        $helper = Mage::helper('royalmail');
+        $country = $this->_getCountry();
+
+        if (!$helper->isCountryAvailableForInternationalTrackedAndSigned($country)) {
+            return null;
+        }
         $rates = parent::getRates();
 
         if($rates !== null) {
