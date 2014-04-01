@@ -26,6 +26,16 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
         );
     }
 
+    public function testNotAllowedFromFrance() {
+        $this->assertNull(
+            $this->_model->getCost($this->_getRateRequest(
+                100,
+                1.00,
+                'FR'
+            ))
+        );
+    }
+
     public function testNotAllowedFromUnitedKingdom() {
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
