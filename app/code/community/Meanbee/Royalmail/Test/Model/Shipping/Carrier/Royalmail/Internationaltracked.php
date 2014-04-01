@@ -28,11 +28,11 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationaltrack
 
     public function testAllowedFromNonEuCountry() {
         $this->assertEquals(
-            8.20,
+            9,
             $this->_model->getCost($this->_getRateRequest(
                 100,
                 1.00,
-                'AM'
+                'AU'
             ))
         );
     }
