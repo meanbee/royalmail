@@ -18,4 +18,26 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltrackedsigned { }
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard {
+
+    protected $insureOver = 50;
+    protected $additionalInsuranceCharge = 2.50;
+
+    public function getRates() {
+        $helper = Mage::helper('royalmail');
+        $country = $this->_getCountry();
+
+        if (!$helper->isCountryAvailableForInternationalSigned($country)) {
+            return null;
+        }
+        $rates = parent::getRates();
+
+        if($rates !== null) {
+            $rates = Mage::helper('royalmail')->addInsuranceCharges($rates, $this->additionalInsuranceCharge, $this->getCartTotal(), $this->insureOver);
+            for($i = 0; $i < count($rates); $i++) {
+                $rates[$i]['cost'] += 5;
+            }
+        }
+        return $rates;
+    }
+}

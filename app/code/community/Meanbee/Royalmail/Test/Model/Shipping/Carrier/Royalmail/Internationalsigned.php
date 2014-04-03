@@ -15,9 +15,19 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
         $this->_model = null;
     }
 
-    public function testAllowedFromFrance() {
+    public function testAllowedFromFiji() {
         $this->assertEquals(
-            8.20,
+            9,
+            $this->_model->getCost($this->_getRateRequest(
+                100,
+                1.00,
+                'FJ'
+            ))
+        );
+    }
+
+    public function testNotAllowedFromFrance() {
+        $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 100,
                 1.00,
@@ -38,12 +48,12 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testMinimalPrice() {
         $this->assertEquals(
-            8.20,
+            9,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     50,
                     1.00,
-                    'FR'
+                    'FJ'
                 )
             )
         );
@@ -51,12 +61,12 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testUpperLimit() {
         $this->assertEquals(
-            18.85,
+            30,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     2000,
                     1.00,
-                    'FR'
+                    'FJ'
                 )
             )
         );
@@ -72,12 +82,12 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationalsigne
 
     public function testAdditionalInsuranceCharge() {
         $this->assertEquals(
-            21.35,
+            32.5,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     2000,
                     100.00,
-                    'FR'
+                    'FJ'
                 )
             )
         );

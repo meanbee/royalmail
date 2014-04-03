@@ -26,13 +26,23 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Internationaltrack
         );
     }
 
-    public function testAllowedFromNonEuCountry() {
-        $this->assertEquals(
-            8.20,
+    public function testNotAllowedFromAfghanistan() {
+        $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
                 100,
                 1.00,
-                'AM'
+                'AF'
+            ))
+        );
+    }
+
+    public function testAllowedFromNonEuCountry() {
+        $this->assertEquals(
+            9,
+            $this->_model->getCost($this->_getRateRequest(
+                100,
+                1.00,
+                'AU'
             ))
         );
     }

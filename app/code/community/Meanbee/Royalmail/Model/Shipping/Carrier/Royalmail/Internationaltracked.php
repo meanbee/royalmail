@@ -41,6 +41,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
             return null;
         }
 
+        if (!$_helper->isCountryAvailableForInternationalTracked($country)) {
+            return null;
+        }
+
         if($country != 'GB') {
             switch($worldZone) {
                 case 'eu':
