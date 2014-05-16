@@ -21,7 +21,8 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaleconomy
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     public function getRates() {
-        if($this->_getCountry() !== 'GB') {
+        $helper = Mage::helper('royalmail');
+        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
             return $this->_loadCsv('internationaleconomy');
         }
         return null;
