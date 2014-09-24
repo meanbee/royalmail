@@ -19,6 +19,7 @@
 
 class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
 
+    const WORLD_ZONE_GB = 'gb';
     const WORLD_ZONE_EU = 'eu';
     const WORLD_ZONE_NONEU = 'noneu';
     const WORLD_ZONE_ONE = 'wz1';
@@ -26,6 +27,9 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
     const INTERNATIONAL_SIGNED = 'international_signed';
     const INTERNATIONAL_TRACKED_AND_SIGNED = 'international_trackedsigned';
     const INTERNATIONAL_TRACKED = 'international_tracked';
+
+    protected $_worldZoneGb = array(
+        'GB', 'IM', 'JE', 'GG');
 
     protected $_worldZoneEu = array(
         'DK', 'EE', 'LV', 'AT', 'FI',
@@ -343,16 +347,16 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
      */
     public function getWorldZone($countryCode) {
         $country = strtoupper($countryCode);
-        if ($country != 'GB') {
-            if (in_array($country, $this->_worldZoneEu)) {
-                return self::WORLD_ZONE_EU;
-            } else if (in_array($country, $this->_worldZoneNonEu)) {
-                return self::WORLD_ZONE_NONEU;
-            } else if (in_array($country, $this->_worldZone2)) {
-                return self::WORLD_ZONE_TWO;
-            } else {
-                return self::WORLD_ZONE_ONE;
-            }
+        if (in_array($country, $this->_worldZoneGb)) {
+            return self::WORLD_ZONE_GB;
+        } else if (in_array($country, $this->_worldZoneEu)) {
+            return self::WORLD_ZONE_EU;
+        } else if (in_array($country, $this->_worldZoneNonEu)) {
+            return self::WORLD_ZONE_NONEU;
+        } else if (in_array($country, $this->_worldZone2)) {
+            return self::WORLD_ZONE_TWO;
+        } else {
+            return self::WORLD_ZONE_ONE;
         }
         return null;
     }
