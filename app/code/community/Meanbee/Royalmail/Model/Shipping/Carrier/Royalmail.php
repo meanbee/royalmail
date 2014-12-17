@@ -134,8 +134,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
 
     public function getMethods($name=null) {
         $codes = array(
-                'letter' => 'Letter',
-                'largeletter' => 'Large Letter',
+                // To maintain backwards comparability we need to keep letter and largeletter indices the same
+                'letter' => 'First Class Letter',
+                'largeletter' => 'First Class Large Letter',
+                'secondclassletter' => 'Second Class Letter',
+                'secondclasslargeletter' => 'Second Class Large Letter',
 
                 'secondclass' => 'Second Class Parcel',
                 'secondclassrecordedsignedfor' => 'Second Class Parcel (Signed for)',
