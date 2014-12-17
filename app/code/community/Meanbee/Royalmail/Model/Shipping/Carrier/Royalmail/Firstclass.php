@@ -21,9 +21,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     public function getRates() {
+        $helper = Mage::helper('royalmail');
         $rates = $this->_loadCsv($this->_getRateFile());
 
-        if ($this->_getCountry() == 'GB') {
+        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
             return $rates;
         }
 
@@ -34,7 +35,8 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass
         $weight = $this->_getWeight();
 
         if ($weight <= 2000) {
-            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
+            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL ||
+                Mage::getStoreConfig('carriers/royalmail/parcel_size') == "") {
                 return 'firstclass_small';
             }
         }

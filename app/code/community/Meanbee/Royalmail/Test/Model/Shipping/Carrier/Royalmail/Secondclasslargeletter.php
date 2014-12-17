@@ -1,12 +1,12 @@
 <?php
-class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Firstclassrecordedsignedfor extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
-    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclassrecordedsignedfor */
+class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Secondclasslargeletter extends Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Abstract {
+    /** @var Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclasslargeletter */
     protected $_model = null;
 
     public function setUp() {
         parent::setUp();
 
-        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_firstclassrecordedsignedfor');
+        $this->_model = Mage::getModel('royalmail/shipping_carrier_royalmail_secondclasslargeletter');
     }
 
     public function tearDown() {
@@ -27,7 +27,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Firstclassrecorded
 
     public function testMinimalPrice() {
         $this->assertEquals(
-            4.30,
+            0.73,
             $this->_model->getCost(
                 $this->_getRateRequest(
                     50,
@@ -40,10 +40,10 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Firstclassrecorded
 
     public function testUpperLimit() {
         $this->assertEquals(
-            34.50,
+            2.01,
             $this->_model->getCost(
                 $this->_getRateRequest(
-                    20000,
+                    750,
                     1.00,
                     'GB'
                 )
@@ -52,7 +52,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Firstclassrecorded
 
         $this->assertNull(
             $this->_model->getCost($this->_getRateRequest(
-                20001,
+                751,
                 1.00,
                 'GB'
             ))

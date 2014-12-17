@@ -21,9 +21,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
+        $helper = Mage::helper('royalmail');
         $rates = $this->_getRatesCsv();
 
-        if ($this->_getCountry() == 'GB') {
+        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
             return $rates;
         }
 
@@ -32,7 +33,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextday
 
     protected function _getRatesCsv() {
         $total = $this->getCartTotal();
-        if ($total <= 50) {
+        if ($total <= 500) {
             return $this->_loadCsv('nextday500');
         } else if ($total <= 1000) {
             return $this->_loadCsv('nextday1000');

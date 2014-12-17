@@ -21,9 +21,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
+        $helper = Mage::helper('royalmail');
         $rates = $this->_loadCsv($this->_getRateFile());
         
-        if ($this->_getCountry() == 'GB') {
+        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
             return $rates;
         }
 
