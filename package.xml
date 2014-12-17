@@ -1,5 +1,5 @@
 <_>
-   <form_key>SOxwN393rytS53E8</form_key>
+   <form_key>WZE4hknVqBLFeb2i</form_key>
    <name>Meanbee_Royalmail</name>
    <channel>community</channel>
    <version_ids>
@@ -10,9 +10,9 @@
    <description>Automatically calculated Royal Mail delivery methods.</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>2.6.1</version>
+   <version>2.6.2</version>
    <stability>stable</stability>
-   <notes>* March 31st international shipping limitations.</notes>
+   <notes>* Added second class letter and large letter rates which were previously missing</notes>
    <authors>
       <name>
          <name>Meanbee</name>
@@ -41,7 +41,7 @@
             <max/>
          </max>
          <files>
-            <files>           </files>
+            <files>            </files>
          </files>
       </package>
       <extension>
@@ -83,4 +83,8 @@
          <ignore/>
       </ignore>
    </contents>
+   <page>1</page>
+   <limit>200</limit>
+   <folder/>
+   <package/>
 </_>
