@@ -150,7 +150,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
 
                 'specialdelivery9am' => 'Special Delivery Guaranteed by 9am (Up to 2,500GBP Insurance)',
 
-                'internationalstandard' => 'International Standard (up to 5kg)',
+                'internationalstandard' => 'International Standard (up to 2kg)',
                 'internationaltrackedsigned' => 'International Tracked & Signed (Up to 250GBP Compensation)',
                 'internationaltracked' => 'International Tracked (Up to 250GBP Compensation)',
                 'internationalsigned' => 'International Signed (Up to 250GBP Compensation)',
