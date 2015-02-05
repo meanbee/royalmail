@@ -23,8 +23,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
     protected $insureOver = 50;
     protected $additionalInsuranceChargeEu = 3.00;
     protected $additionalInsuranceChargeNonEu = 2.50;
-    protected $additionalInsuranceChargeWz1 = 2.50;
-    protected $additionalInsuranceChargeWz2 = 2.50;
+    protected $additionalInsuranceChargeWz = 2.50;
 
     public function getRates() {
         $_helper = Mage::helper('royalmail');
@@ -38,9 +37,9 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
 
 
         switch($worldZone) {
-            case 'gb':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB:
                 return null;
-            case 'eu':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU:
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getEuRates(),
                     $this->additionalInsuranceChargeEu,
@@ -48,7 +47,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
                     $this->insureOver
                 );
                 break;
-            case 'noneu':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU:
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getNonEuRates(),
                     $this->additionalInsuranceChargeNonEu,
@@ -56,18 +55,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
                     $this->insureOver
                 );
                 break;
-            case 'wz1':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO:
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getWzRates(),
-                    $this->additionalInsuranceChargeWz1,
-                    $this->getCartTotal(),
-                    $this->insureOver
-                );
-                break;
-            case 'wz2':
-                $rates = $_helper->addInsuranceCharges(
-                    $this->_getWzRates(),
-                    $this->additionalInsuranceChargeWz2,
+                    $this->additionalInsuranceChargeWz,
                     $this->getCartTotal(),
                     $this->insureOver
                 );

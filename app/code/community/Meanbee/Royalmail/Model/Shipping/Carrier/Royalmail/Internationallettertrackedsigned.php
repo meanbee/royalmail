@@ -35,9 +35,9 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
         }
 
         switch($worldZone) {
-            case 'gb':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB:
                 return null;
-            case 'eu':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU:
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getEuRates(),
                     $this->additionalInsuranceChargeEu,
@@ -45,15 +45,8 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrac
                     $this->insureOver
                 );
                 break;
-            case 'wz1':
-                $rates = $_helper->addInsuranceCharges(
-                    $this->_getWzRates(),
-                    $this->additionalInsuranceChargeWz,
-                    $this->getCartTotal(),
-                    $this->insureOver
-                );
-                break;
-            case 'wz2':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO:
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getWzRates(),
                     $this->additionalInsuranceChargeWz,

@@ -24,7 +24,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclasslettersignedf
         $helper = Mage::helper('royalmail');
         $rates = $this->_loadCsv('firstclass_letter_signedfor');
 
-        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
+        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
             return $rates;
         }
 

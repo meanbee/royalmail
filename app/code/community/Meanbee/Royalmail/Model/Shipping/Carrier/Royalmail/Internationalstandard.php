@@ -28,16 +28,16 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard
 
 
         switch($worldZone) {
-            case 'gb':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB:
                 return null;
-            case 'eu':
-            case 'noneu':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU:
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU;
                 $rates = $this->_getEuropeRates();
                 break;
-            case 'wz1':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
                 $rates = $this->_getWz1Rates();
                 break;
-            case 'wz2':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO:
                 $rates = $this->_getWz2Rates();
                 break;
             default:
