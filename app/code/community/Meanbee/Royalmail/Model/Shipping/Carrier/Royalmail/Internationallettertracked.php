@@ -17,11 +17,11 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertracked
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected $insureOver = 50;
-    protected $additionalInsuranceChargeEu = 2.50;
+    protected $additionalInsuranceChargeEu = 3.00;
     protected $additionalInsuranceChargeNonEu = 2.50;
     protected $additionalInsuranceChargeWz1 = 2.50;
     protected $additionalInsuranceChargeWz2 = 2.50;
@@ -32,9 +32,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
         $worldZone = $_helper->getWorldZone($country);
 
 
-        if (!$_helper->isCountryAvailableForInternationalSigned($country)) {
+        if (!$_helper->isCountryAvailableForInternationalTracked($country)) {
             return null;
         }
+
 
         switch($worldZone) {
             case 'gb':
@@ -57,7 +58,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
                 break;
             case 'wz1':
                 $rates = $_helper->addInsuranceCharges(
-                    $this->_getWz1Rates(),
+                    $this->_getWzRates(),
                     $this->additionalInsuranceChargeWz1,
                     $this->getCartTotal(),
                     $this->insureOver
@@ -65,7 +66,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
                 break;
             case 'wz2':
                 $rates = $_helper->addInsuranceCharges(
-                    $this->_getWz2Rates(),
+                    $this->_getWzRates(),
                     $this->additionalInsuranceChargeWz2,
                     $this->getCartTotal(),
                     $this->insureOver
@@ -78,18 +79,15 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
     }
 
     protected function _getEuRates() {
-        return $this->_loadCsv('internationalsigned_eu');
+        return $this->_loadCsv('internationallettertracked_eu');
     }
 
     protected function _getNonEuRates() {
-        return $this->_loadCsv('internationalsigned_noneu');
+        return $this->_loadCsv('internationallettertracked_noneu');
     }
 
-    protected function _getWz1Rates() {
-        return $this->_loadCsv('internationalsigned_wz1');
+    protected function _getWzRates() {
+        return $this->_loadCsv('internationallettertracked_wz');
     }
 
-    protected function _getWz2Rates() {
-        return $this->_loadCsv('internationalsigned_wz2');
-    }
 }

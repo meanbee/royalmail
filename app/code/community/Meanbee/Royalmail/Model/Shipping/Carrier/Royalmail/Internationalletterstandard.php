@@ -17,7 +17,7 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalletterstandard
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
 
@@ -35,10 +35,10 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard
                 $rates = $this->_getEuropeRates();
                 break;
             case 'wz1':
-                $rates = $this->_getWz1Rates();
+                $rates = $this->_getWzRates();
                 break;
             case 'wz2':
-                $rates = $this->_getWz2Rates();
+                $rates = $this->_getWzRates();
                 break;
             default:
                 return null;
@@ -47,14 +47,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard
     }
 
     protected function _getEuropeRates() {
-        return $this->_loadCsv('internationalstandard_europe');
+        return $this->_loadCsv('internationalletterstandard_eu');
     }
 
-    protected function _getWz1Rates() {
-        return $this->_loadCsv('internationalstandard_wz1');
+    protected function _getWzRates() {
+        return $this->_loadCsv('internationalletterstandard_wz');
     }
 
-    protected function _getWz2Rates() {
-        return $this->_loadCsv('internationalstandard_wz2');
-    }
 }

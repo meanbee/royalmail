@@ -135,10 +135,16 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
     public function getMethods($name=null) {
         $codes = array(
                 // To maintain backwards comparability we need to keep letter and largeletter indices the same
+
                 'letter' => 'First Class Letter',
                 'largeletter' => 'First Class Large Letter',
+                'firstclasslettersignedfor' => 'First Class Letter (Signed for)',
+                'firstclasslargelettersignedfor' => 'First Class Large Letter (Signed for)',
+
                 'secondclassletter' => 'Second Class Letter',
                 'secondclasslargeletter' => 'Second Class Large Letter',
+                'secondclasslettersignedfor' => 'Second Class Letter (Signed For)',
+                'secondclasslargelettersignedfor' => 'Second Class Large Letter (Signed For)',
 
                 'secondclass' => 'Second Class Parcel',
                 'secondclassrecordedsignedfor' => 'Second Class Parcel (Signed for)',
@@ -146,15 +152,22 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
                 'firstclass' => 'First Class Parcel',
                 'firstclassrecordedsignedfor' => 'First Class Parcel (Signed for)',
 
-                'specialdeliverynextday' => 'Special Delivery Guaranteed by 1pm (Up to 500GBP Insurance)',
-
+                'specialdeliverynextday' => 'Special Delivery Guaranteed by 1pm (Up to 2,500GBP Insurance)',
                 'specialdelivery9am' => 'Special Delivery Guaranteed by 9am (Up to 2,500GBP Insurance)',
+                'specialdelivery9amsaturday' => 'Special Delivery Saturday Guaranteed by 9am (Up to 2,500GBP Insurance)',
+                'specialdeliverynextdaysaturday' => 'Special Delivery Saturday Guaranteed by 1pm (Up to 2,500GBP Insurance)',
 
                 'internationalstandard' => 'International Standard (up to 2kg)',
                 'internationaltrackedsigned' => 'International Tracked & Signed (Up to 250GBP Compensation)',
                 'internationaltracked' => 'International Tracked (Up to 250GBP Compensation)',
                 'internationalsigned' => 'International Signed (Up to 250GBP Compensation)',
-                'internationaleconomy' => 'International Economy'
+                'internationaleconomy' => 'International Economy',
+
+                'internationallettertracked' => 'International Letter Tracked',
+                'internationallettersigned' => 'International Letter Signed',
+                'internationallettereconomy' => 'International Letter Economy',
+                'internationalletterstandard' => 'International Letter Standard',
+                'internationallettertrackedsigned' => 'International Letter Tracked (Signed)',
         );
         
         if ($name !== null) {

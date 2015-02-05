@@ -17,26 +17,29 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextdaysaturday
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected function getRates() {
         $helper = Mage::helper('royalmail');
-        $rates = $this->_loadCsv($this->_getRateFile());
-        
-        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
+        $rates = $this->_getRatesCsv();
+
+        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
             return $rates;
         }
 
         return null;
     }
 
-    protected function _getRateFile() {
-
-        if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
-            return 'secondclass_small';
+    protected function _getRatesCsv() {
+        $total = $this->getCartTotal();
+        if ($total <= 500) {
+            return $this->_loadCsv('nextday500saturday');
+        } else if ($total <= 1000) {
+            return $this->_loadCsv('nextday1000saturday');
+        } else if ($total <= 2500) {
+            return $this->_loadCsv('nextday2500saturday');
         }
-
-        return 'secondclass_medium';
+        return null;
     }
 }

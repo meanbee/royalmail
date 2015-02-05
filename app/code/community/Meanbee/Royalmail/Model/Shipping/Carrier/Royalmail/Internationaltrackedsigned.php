@@ -18,26 +18,78 @@
  */
 
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltrackedsigned
-    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalstandard {
+    extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected $insureOver = 50;
-    protected $additionalInsuranceCharge = 2.50;
+    protected $additionalInsuranceChargeEu = 2.50;
+    protected $additionalInsuranceChargeNonEu = 2.50;
+    protected $additionalInsuranceChargeWz1 = 2.50;
+    protected $additionalInsuranceChargeWz2 = 2.50;
 
     public function getRates() {
-        $helper = Mage::helper('royalmail');
+        $_helper = Mage::helper('royalmail');
         $country = $this->_getCountry();
+        $worldZone = $_helper->getWorldZone($country);
 
-        if (!$helper->isCountryAvailableForInternationalTrackedAndSigned($country)) {
+
+        if (!$_helper->isCountryAvailableForInternationalTrackedAndSigned($country)) {
             return null;
         }
-        $rates = parent::getRates();
 
-        if($rates !== null) {
-            $rates = Mage::helper('royalmail')->addInsuranceCharges($rates, $this->additionalInsuranceCharge, $this->getCartTotal(), $this->insureOver);
-            for($i = 0; $i < count($rates); $i++) {
-                $rates[$i]['cost'] += 5;
-            }
+        switch($worldZone) {
+            case 'gb':
+                return null;
+            case 'eu':
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getEuRates(),
+                    $this->additionalInsuranceChargeEu,
+                    $this->getCartTotal(),
+                    $this->insureOver
+                );
+                break;
+            case 'noneu':
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getNonEuRates(),
+                    $this->additionalInsuranceChargeNonEu,
+                    $this->getCartTotal(),
+                    $this->insureOver
+                );
+                break;
+            case 'wz1':
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getWz1Rates(),
+                    $this->additionalInsuranceChargeWz1,
+                    $this->getCartTotal(),
+                    $this->insureOver
+                );
+                break;
+            case 'wz2':
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getWz2Rates(),
+                    $this->additionalInsuranceChargeWz2,
+                    $this->getCartTotal(),
+                    $this->insureOver
+                );
+                break;
+            default:
+                return null;
         }
         return $rates;
+    }
+
+    protected function _getEuRates() {
+        return $this->_loadCsv('internationaltrackedsigned_eu');
+    }
+
+    protected function _getNonEuRates() {
+        return $this->_loadCsv('internationaltrackedsigned_noneu');
+    }
+
+    protected function _getWz1Rates() {
+        return $this->_loadCsv('internationaltrackedsigned_wz1');
+    }
+
+    protected function _getWz2Rates() {
+        return $this->_loadCsv('internationaltrackedsigned_wz2');
     }
 }
