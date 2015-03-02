@@ -17,14 +17,12 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettertrackedsigned
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
     protected $insureOver = 50;
-    protected $additionalInsuranceChargeEu = 3;
-    protected $additionalInsuranceChargeNonEu = 2.50;
-    protected $additionalInsuranceChargeWz1 = 2.50;
-    protected $additionalInsuranceChargeWz2 = 2.50;
+    protected $additionalInsuranceChargeEu = 2.50;
+    protected $additionalInsuranceChargeWz = 2.50;
 
     public function getRates() {
         $_helper = Mage::helper('royalmail');
@@ -32,7 +30,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
         $worldZone = $_helper->getWorldZone($country);
 
 
-        if (!$_helper->isCountryAvailableForInternationalTracked($country)) {
+        if (!$_helper->isCountryAvailableForInternationalTrackedAndSigned($country)) {
             return null;
         }
 
@@ -47,26 +45,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
                     $this->insureOver
                 );
                 break;
-            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU:
-                $rates = $_helper->addInsuranceCharges(
-                    $this->_getNonEuRates(),
-                    $this->additionalInsuranceChargeNonEu,
-                    $this->getCartTotal(),
-                    $this->insureOver
-                );
-                break;
             case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
-                $rates = $_helper->addInsuranceCharges(
-                    $this->_getWz1Rates(),
-                    $this->additionalInsuranceChargeWz1,
-                    $this->getCartTotal(),
-                    $this->insureOver
-                );
-                break;
             case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO:
                 $rates = $_helper->addInsuranceCharges(
-                    $this->_getWz2Rates(),
-                    $this->additionalInsuranceChargeWz2,
+                    $this->_getWzRates(),
+                    $this->additionalInsuranceChargeWz,
                     $this->getCartTotal(),
                     $this->insureOver
                 );
@@ -78,18 +61,11 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
     }
 
     protected function _getEuRates() {
-        return $this->_loadCsv('internationaltracked_eu');
+        return $this->_loadCsv('internationallettertrackedsigned_eu');
     }
 
-    protected function _getNonEuRates() {
-        return $this->_loadCsv('internationaltracked_noneu');
+    protected function _getWzRates() {
+        return $this->_loadCsv('internationallettertrackedsigned_wz');
     }
 
-    protected function _getWz1Rates() {
-        return $this->_loadCsv('internationaltracked_wz1');
-    }
-
-    protected function _getWz2Rates() {
-        return $this->_loadCsv('internationaltracked_wz2');
-    }
 }

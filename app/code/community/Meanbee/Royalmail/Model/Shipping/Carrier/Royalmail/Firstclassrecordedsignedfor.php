@@ -20,15 +20,23 @@
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclassrecordedsignedfor
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Firstclass {
 
-    private $_extraCharge = 1.10;
-
     public function getRates() {
-        $rates = parent::getRates();
+        $helper = Mage::helper('royalmail');
+        $rates = $this->_loadCsv($this->_getRateFile());
 
-        for ($i = 0; $i < count($rates); $i++) {
-            $rates[$i]['cost'] += $this->_extraCharge;
+        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
+            return $rates;
         }
 
-        return $rates;
+        return null;
+    }
+
+    protected function _getRateFile() {
+
+        if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
+            return 'firstclass_small_signedfor';
+        }
+
+        return 'firstclass_medium_signedfor';
     }
 }

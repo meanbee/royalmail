@@ -300,25 +300,6 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         return $this->_isCountryAvailableForMethod($countryCode, self::INTERNATIONAL_SIGNED);
     }
 
-    /**
-     * RoyalMail allow weights over their upper limit, and usually charge per additional 250g.
-     * This is a helper to add those charges onto the rates supplied.
-     *
-     * @param $rates
-     * @param $charge
-     * @param $weight
-     * @param int $chargePer
-     * @return mixed
-     */
-    public function addAdditionalWeightCharges($rates, $charge, $weight, $chargePer = 250) {
-        for($i = 0; $i < count($rates); $i++) {
-            if($weight > $rates[$i]['upper']) {
-                $additional = ceil(((($weight - $rates[$i]['upper']) / $chargePer) * $charge * 100)) / 100;
-                $rates[$i]['cost'] += $additional;
-            }
-        }
-        return $rates;
-    }
 
     /**
      * A simple helper to add the insurance charges on top of the rates supplied.

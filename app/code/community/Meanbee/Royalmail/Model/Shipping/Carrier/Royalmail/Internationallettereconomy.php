@@ -13,21 +13,18 @@
  *
  * @category   Meanbee
  * @package    Meanbee_Royalmail
- * @copyright  Copyright (c) 2008 Meanbee Internet Solutions (http://www.meanbee.com)
+ * @copyright  Copyright (c) 2014 Meanbee Internet Solutions (http://www.meanbee.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Letter
+class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettereconomy
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-    protected function getRates() {
+    public function getRates() {
         $helper = Mage::helper('royalmail');
-        $rates = $this->_loadCsv('letter');
-        
-        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
-            return $rates;
+        if ($helper->getWorldZone($this->_getCountry()) !== Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB) {
+            return $this->_loadCsv('internationalltettereconomy');
         }
-
         return null;
     }
 }
