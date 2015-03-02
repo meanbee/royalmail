@@ -24,7 +24,7 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Specialdeliverynextdays
         $helper = Mage::helper('royalmail');
         $rates = $this->_getRatesCsv();
 
-        if ($helper->getWorldZone($this->_getCountry()) == 'gb') {
+        if ($helper->getWorldZone($this->_getCountry()) == Meanbee_SeoContent_Helper_Data::WORLD_ZONE_GB) {
             return $rates;
         }
 
