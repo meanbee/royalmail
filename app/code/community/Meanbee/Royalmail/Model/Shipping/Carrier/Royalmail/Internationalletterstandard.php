@@ -31,7 +31,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalletterstan
             case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB:
                 return null;
             case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU:
-            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU:
                 $rates = $this->_getEuropeRates();
                 break;
             case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
