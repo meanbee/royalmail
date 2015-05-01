@@ -1,0 +1,132 @@
+-
+  model_alias: letter
+  data: { csv: letter, weights: { lowest: { weight: '100', price: "0.63" }, highest: { weight: '100', price: "0.63" } }, zones: gb }
+-
+  model_alias: largeletter
+  data: { csv: largeletter, weights: { lowest: { weight: '250', price: '1.26' }, highest: { weight: '750', price: '2.42' } }, zones: gb }
+-
+  model_alias: firstclasslettersignedfor
+  data: { csv: firstclass_letter_signedfor, weights: { lowest: { weight: '100', price: "1.73" }, highest: { weight: '100', price: "1.73" } }, zones: gb }
+-
+  model_alias: firstclasslargelettersignedfor
+  data: { csv: firstclass_largeletter_signedfor, weights: { lowest: { weight: '250', price: '2.36' }, highest: { weight: '750', price: '3.52' } }, zones: gb }
+-
+  model_alias: secondclassletter
+  data: { csv: secondclass_letter, weights: { lowest: { weight: '100', price: "0.54" }, highest: { weight: '100', price: "0.54" } }, zones: gb }
+-
+  model_alias: secondclasslargeletter
+  data: { csv: secondclass_largeletter, weights: { lowest: { weight: '250', price: '1.19' }, highest: { weight: '750', price: '2.05' } }, zones: gb }
+-
+  model_alias: secondclasslettersignedfor
+  data: { csv: secondclass_letter_signedfor, weights: { lowest: { weight: '100', price: "1.64" }, highest: { weight: '100', price: "1.64" } }, zones: gb }
+-
+  model_alias: secondclasslargelettersignedfor
+  data: { csv: secondclass_largeletter_signedfor, weights: { lowest: { weight: '250', price: '2.36' }, highest: { weight: '750', price: '3.52' } }, zones: gb }
+-
+  model_alias: specialdeliverynextday
+  data: { csv: nextday500, weights: { lowest: { weight: '500', price: '7.25' }, highest: { weight: '20000', price: '41.20' } }, zones: gb }
+-
+  model_alias: specialdeliverynextday
+  data: { csv: nextday1000, weights: { lowest: { weight: '500', price: '8.25', cart_total: '999' }, highest: { weight: '20000', price: '41.20', cart_total: '999' } }, zones: gb }
+-
+  model_alias: specialdeliverynextday
+  data: { csv: nextday2500, weights: { lowest: { weight: '500', price: '10.25', cart_total: '2499' }, highest: { weight: '20000', price: '44.20', cart_total: '2499' } }, zones: gb }
+-
+  model_alias: specialdelivery9am
+  data: { csv: 9am50, weights: { lowest: { weight: '500', price: '20.76' }, highest: { weight: '2000', price: '26.94' } }, zones: gb }
+-
+  model_alias: specialdelivery9am
+  data: { csv: 9am1000, weights: { lowest: { weight: '500', price: '22.96', cart_total: '999' }, highest: { weight: '2000', price: '29.14', cart_total: '999' } }, zones: gb }
+-
+  model_alias: specialdelivery9am
+  data: { csv: 9am2500, weights: { lowest: { weight: '500', price: '26.46', cart_total: '2499' }, highest: { weight: '2000', price: '32.64', cart_total: '2499' } }, zones: gb }
+-
+  model_alias: specialdelivery9amsaturday
+  data: { csv: 9am50saturday, weights: { lowest: { weight: '500', price: '23.76' }, highest: { weight: '2000', price: '29.94' } }, zones: gb }
+-
+  model_alias: specialdelivery9amsaturday
+  data: { csv: 9am1000saturday, weights: { lowest: { weight: '500', price: '25.96', cart_total: '999' }, highest: { weight: '2000', price: '32.14', cart_total: '999' } }, zones: gb }
+-
+  model_alias: specialdelivery9amsaturday
+  data: { csv: 9am2500saturday, weights: { lowest: { weight: '500', price: '29.46', cart_total: '2499' }, highest: { weight: '2000', price: '35.64', cart_total: '2499' } }, zones: gb }
+-
+  model_alias: specialdeliverynextdaysaturday
+  data: { csv: nextday500saturday, weights: { lowest: { weight: '500', price: '11.70' }, highest: { weight: '20000', price: '52.44' } }, zones: gb }
+-
+  model_alias: specialdeliverynextdaysaturday
+  data: { csv: nextday1000saturday, weights: { lowest: { weight: '500', price: '12.90', cart_total: '999' }, highest: { weight: '20000', price: '53.64', cart_total: '999' } }, zones: gb }
+-
+  model_alias: specialdeliverynextdaysaturday
+  data: { csv: nextday2500saturday, weights: { lowest: { weight: '500', price: '15.18', cart_total: '2499' }, highest: { weight: '20000', price: '56.04', cart_total: '2499' } }, zones: gb }
+-
+  model_alias: internationalstandard
+  data: { csv: internationalstandard_europe, weights: { lowest: { weight: '250', price: '3.95' }, highest: { weight: '2000', price: '13.46' } }, zones: eu }
+-
+  model_alias: internationalstandard
+  data: { csv: internationalstandard_wz1, weights: { lowest: { weight: '250', price: '5.00' }, highest: { weight: '2000', price: '19.75' } }, zones: wz1 }
+-
+  model_alias: internationalstandard
+  data: { csv: internationalstandard_wz2, weights: { lowest: { weight: '250', price: '5.45' }, highest: { weight: '2000', price: '21.50' } }, zones: wz2 }
+-
+  model_alias: internationaltrackedsigned
+  data: { csv: internationaltrackedsigned_eu, weights: { lowest: { weight: '250', price: '8.7' }, highest: { weight: '2000', price: '16.96' } }, zones: eu }
+-
+  model_alias: internationaltrackedsigned
+  data: { csv: internationaltrackedsigned_wz1, weights: { lowest: { weight: '250', price: '9.75' }, highest: { weight: '2000', price: '23.25' } }, zones: wz1 }
+-
+  model_alias: internationaltrackedsigned
+  data: { csv: internationaltrackedsigned_wz2, weights: { lowest: { weight: '250', price: '10.05' }, highest: { weight: '2000', price: '25.00' } }, zones: wz2, country_code: NZ }
+-
+  model_alias: internationaltracked
+  data: { csv: internationaltracked_eu, weights: { lowest: { weight: '250', price: '10.44' }, highest: { weight: '2000', price: '20.36' } }, zones: eu }
+-
+  model_alias: internationaltracked
+  data: { csv: internationaltracked_noneu, weights: { lowest: { weight: '250', price: '8.70' }, highest: { weight: '2000', price: '16.96' } }, zones: noneu, country_code: LI }
+-
+  model_alias: internationaltracked
+  data: { csv: internationaltracked_wz1, weights: { lowest: { weight: '250', price: '9.75' }, highest: { weight: '2000', price: '23.55' } }, zones: wz1 }
+-
+  model_alias: internationaltracked
+  data: { csv: internationaltracked_wz2, weights: { lowest: { weight: '250', price: '10.05' }, highest: { weight: '2000', price: '25.00' } }, zones: wz2 }
+-
+  model_alias: internationalsigned
+  data: { csv: internationalsigned_eu, weights: { lowest: { weight: '250', price: '8.7' }, highest: { weight: '2000', price: '16.96' } }, zones: eu, country_code: CY }
+-
+  model_alias: internationalsigned
+  data: { csv: internationalsigned_wz1, weights: { lowest: { weight: '250', price: '9.75' }, highest: { weight: '2000', price: '23.25' } }, zones: wz1, country_code: AO }
+-
+  model_alias: internationalsigned
+  data: { csv: internationalsigned_wz2, weights: { lowest: { weight: '250', price: '10.05' }, highest: { weight: '2000', price: '25.00' } }, zones: wz2 }
+-
+  model_alias: internationaleconomy
+  data: { csv: internationaleconomy, weights: { lowest: { weight: '250', price: '3.75' }, highest: { weight: '2000', price: '13.26' } }, zones: wz1 }
+-
+  model_alias: internationallettertracked
+  data: { csv: internationallettertracked_eu, weights: { lowest: { weight: '20', price: '7.20' }, highest: { weight: '100', price: '7.83' } }, zones: eu }
+-
+  model_alias: internationallettertracked
+  data: { csv: internationallettertracked_noneu, weights: { lowest: { weight: '20', price: null }, highest: { weight: '100', price: null } }, zones: noneu }
+-
+  model_alias: internationallettertracked
+  data: { csv: internationallettertracked_wz, weights: { lowest: { weight: '20', price: '6.33' }, highest: { weight: '100', price: '7.25' } }, zones: [wz1, wz2] }
+-
+  model_alias: internationallettersigned
+  data: { csv: internationallettersigned_eu, weights: { lowest: { weight: '20', price: null }, highest: { weight: '100', price: null } }, zones: eu }
+-
+  model_alias: internationallettersigned
+  data: { csv: internationallettersigned_wz, weights: { lowest: { weight: '20', price: '6.33' }, highest: { weight: '100', price: '7.25' } }, zones: [wz1, wz2], country_code: [TN, NC] }
+-
+  model_alias: internationallettereconomy
+  data: { csv: internationalltettereconomy, weights: { lowest: { weight: '20', price: '1.33' }, highest: { weight: '100', price: '2.25' } }, zones: [wz1, wz2, eu] }
+-
+  model_alias: internationalletterstandard
+  data: { csv: internationalletterstandard_eu, weights: { lowest: { weight: '20', price: '1.00' }, highest: { weight: '100', price: '1.52' } }, zones: eu }
+-
+  model_alias: internationalletterstandard
+  data: { csv: internationalletterstandard_wz, weights: { lowest: { weight: '20', price: '1.33' }, highest: { weight: '100', price: '2.25' } }, zones: [wz1, wz2] }
+-
+  model_alias: internationallettertrackedsigned
+  data: { csv: internationallettertrackedsigned_eu, weights: { lowest: { weight: '20', price: '1.00' }, highest: { weight: '100', price: '1.52' } }, zones: eu, country_code: AT }
+-
+  model_alias: internationallettertrackedsigned
+  data: { csv: internationallettertrackedsigned_wz, weights: { lowest: { weight: '60', price: '7.15' }, highest: { weight: '100', price: '8.45' } }, zones: [wz1, wz2], country_code: [CA, CA] }
