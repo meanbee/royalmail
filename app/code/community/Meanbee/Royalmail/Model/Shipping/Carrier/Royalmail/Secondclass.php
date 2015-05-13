@@ -32,12 +32,9 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Secondclass
     }
 
     protected function _getRateFile() {
-        $weight = $this->_getWeight();
 
-        if ($weight <= 2000) {
-            if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
-                return 'secondclass_small';
-            }
+        if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL) {
+            return 'secondclass_small';
         }
 
         return 'secondclass_medium';

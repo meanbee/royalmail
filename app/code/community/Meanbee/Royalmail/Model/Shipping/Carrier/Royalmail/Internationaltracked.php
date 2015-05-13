@@ -20,11 +20,6 @@
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
     extends Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Abstract {
 
-    protected $additionalChargeEu = 1.74;
-    protected $additionalChargeNonEu = 1.45;
-    protected $additionalChargeWz1 = 2.70;
-    protected $additionalChargeWz2 = 2.85;
-    protected $maxWeight = 5000;
     protected $insureOver = 50;
     protected $additionalInsuranceChargeEu = 3;
     protected $additionalInsuranceChargeNonEu = 2.50;
@@ -35,77 +30,51 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationaltracked
         $_helper = Mage::helper('royalmail');
         $country = $this->_getCountry();
         $worldZone = $_helper->getWorldZone($country);
-        $weight = $this->_getWeight();
 
-        if($weight > $this->maxWeight) {
-            return null;
-        }
 
         if (!$_helper->isCountryAvailableForInternationalTracked($country)) {
             return null;
         }
 
         switch($worldZone) {
-            case 'gb':
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB:
                 return null;
-            case 'eu':
-                $rates = $_helper->addAdditionalWeightCharges(
-                    $_helper->addInsuranceCharges(
-                        $this->_getEuRates(),
-                        $this->additionalInsuranceChargeEu,
-                        $this->getCartTotal(),
-                        $this->insureOver
-                    ),
-                    $this->additionalChargeEu,
-                    $weight
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU:
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getEuRates(),
+                    $this->additionalInsuranceChargeEu,
+                    $this->getCartTotal(),
+                    $this->insureOver
                 );
                 break;
-            case 'noneu':
-                $rates = $_helper->addAdditionalWeightCharges(
-                    $_helper->addInsuranceCharges(
-                        $this->_getNonEuRates(),
-                        $this->additionalInsuranceChargeNonEu,
-                        $this->getCartTotal(),
-                        $this->insureOver
-                    ),
-                    $this->additionalChargeNonEu,
-                    $weight
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU:
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getNonEuRates(),
+                    $this->additionalInsuranceChargeNonEu,
+                    $this->getCartTotal(),
+                    $this->insureOver
                 );
                 break;
-            case 'wz1':
-                $rates = $_helper->addAdditionalWeightCharges(
-                    $_helper->addInsuranceCharges(
-                        $this->_getWz1Rates(),
-                        $this->additionalInsuranceChargeWz1,
-                        $this->getCartTotal(),
-                        $this->insureOver
-                    ),
-                    $this->additionalChargeWz1,
-                    $weight
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE:
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getWz1Rates(),
+                    $this->additionalInsuranceChargeWz1,
+                    $this->getCartTotal(),
+                    $this->insureOver
                 );
                 break;
-            case 'wz2':
-                $rates = $_helper->addAdditionalWeightCharges(
-                    $_helper->addInsuranceCharges(
-                        $this->_getWz2Rates(),
-                        $this->additionalInsuranceChargeWz2,
-                        $this->getCartTotal(),
-                        $this->insureOver
-                    ),
-                    $this->additionalChargeWz2,
-                    $weight
+            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO:
+                $rates = $_helper->addInsuranceCharges(
+                    $this->_getWz2Rates(),
+                    $this->additionalInsuranceChargeWz2,
+                    $this->getCartTotal(),
+                    $this->insureOver
                 );
                 break;
+            default:
+                return null;
         }
         return $rates;
-    }
-
-    public function calculateRate($weight) {
-        if($weight <= $this->maxWeight) {
-            $rates = $this->getRates();
-            return $rates[count($rates)-1]['cost'];
-        }
-        return null;
     }
 
     protected function _getEuRates() {
