@@ -22,7 +22,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
 
     protected $insureOver = 50;
     protected $additionalInsuranceChargeEu = 2.50;
-    protected $additionalInsuranceChargeNonEu = 2.50;
     protected $additionalInsuranceChargeWz1 = 2.50;
     protected $additionalInsuranceChargeWz2 = 2.50;
 
@@ -43,14 +42,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
                 $rates = $_helper->addInsuranceCharges(
                     $this->_getEuRates(),
                     $this->additionalInsuranceChargeEu,
-                    $this->getCartTotal(),
-                    $this->insureOver
-                );
-                break;
-            case Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU:
-                $rates = $_helper->addInsuranceCharges(
-                    $this->_getNonEuRates(),
-                    $this->additionalInsuranceChargeNonEu,
                     $this->getCartTotal(),
                     $this->insureOver
                 );
@@ -79,10 +70,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationalsigned
 
     protected function _getEuRates() {
         return $this->_loadCsv('internationalsigned_eu');
-    }
-
-    protected function _getNonEuRates() {
-        return $this->_loadCsv('internationalsigned_noneu');
     }
 
     protected function _getWz1Rates() {
