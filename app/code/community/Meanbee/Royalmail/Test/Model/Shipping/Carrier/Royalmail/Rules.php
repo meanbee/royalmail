@@ -6,7 +6,6 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Rules extends Mean
     protected $_model = null;
     protected $_countryCodes = array(
         Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB    => 'GB',
-        Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU => 'RS',
         Meanbee_Royalmail_Helper_Data::WORLD_ZONE_EU    => 'FR',
         Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE   => 'US',
         Meanbee_Royalmail_Helper_Data::WORLD_ZONE_TWO   => 'AU',
@@ -159,7 +158,7 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Rules extends Mean
         }
         $code = $this->getCountryCode($data, $key);
         if($code == 'GB')  {
-            return $this->_countryCodes[Meanbee_Royalmail_Helper_Data::WORLD_ZONE_NONEU];
+            return $this->_countryCodes[Meanbee_Royalmail_Helper_Data::WORLD_ZONE_ONE];
         } else {
             return $this->_countryCodes[Meanbee_Royalmail_Helper_Data::WORLD_ZONE_GB];
         }

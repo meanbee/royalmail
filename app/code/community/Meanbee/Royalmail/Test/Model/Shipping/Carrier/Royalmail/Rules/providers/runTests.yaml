@@ -81,9 +81,6 @@
   data: { csv: internationaltracked_eu, weights: { lowest: { weight: '250', price: '10.44' }, highest: { weight: '2000', price: '20.36' } }, zones: eu }
 -
   model_alias: internationaltracked
-  data: { csv: internationaltracked_noneu, weights: { lowest: { weight: '250', price: '8.70' }, highest: { weight: '2000', price: '16.96' } }, zones: noneu, country_code: LI }
--
-  model_alias: internationaltracked
   data: { csv: internationaltracked_wz1, weights: { lowest: { weight: '250', price: '9.75' }, highest: { weight: '2000', price: '23.55' } }, zones: wz1 }
 -
   model_alias: internationaltracked
@@ -103,9 +100,6 @@
 -
   model_alias: internationallettertracked
   data: { csv: internationallettertracked_eu, weights: { lowest: { weight: '20', price: '7.20' }, highest: { weight: '100', price: '7.83' } }, zones: eu }
--
-  model_alias: internationallettertracked
-  data: { csv: internationallettertracked_noneu, weights: { lowest: { weight: '20', price: null }, highest: { weight: '100', price: null } }, zones: noneu }
 -
   model_alias: internationallettertracked
   data: { csv: internationallettertracked_wz, weights: { lowest: { weight: '20', price: '6.33' }, highest: { weight: '100', price: '7.25' } }, zones: [wz1, wz2] }

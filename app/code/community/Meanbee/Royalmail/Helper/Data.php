@@ -21,7 +21,6 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
 
     const WORLD_ZONE_GB = 'gb';
     const WORLD_ZONE_EU = 'eu';
-    const WORLD_ZONE_NONEU = 'noneu';
     const WORLD_ZONE_ONE = 'wz1';
     const WORLD_ZONE_TWO = 'wz2';
     const INTERNATIONAL_SIGNED = 'international_signed';
@@ -32,19 +31,16 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
         'GB', 'IM', 'JE', 'GG');
 
     protected $_worldZoneEu = array(
-        'DK', 'EE', 'LV', 'AT', 'FI',
-        'LT', 'SK', 'FR', 'LU', 'SI',
-        'ES', 'DE', 'SE', 'GI', 'MT',
-        'BE', 'GR', 'MC', 'BG', 'HU',
-        'NL', 'IE', 'HR', 'IT', 'PL',
-        'CY', 'PT', 'CZ', 'RO');
-    protected  $_worldZoneNonEu = array(
-        'SM', 'AM', 'FO', 'LI', 'RS',
-        'XK', 'KZ', 'VA', 'NO', 'UZ',
-        'UA', 'ME', 'TM', 'IS', 'TR',
-        'MD', 'TJ', 'BA', 'GL', 'CH',
-        'BY', 'GE', 'MK', 'AZ', 'KG',
-        'RU', 'AD', 'AL');
+        'AL', 'AM', 'AT', 'AZ', 'BY',
+        'BE', 'BA', 'BG', 'HR', 'CY',
+        'CZ', 'DK', 'EE', 'FO', 'FI',
+        'FR', 'GE', 'DE', 'GI', 'GR',
+        'GL', 'HU', 'IS', 'NO', 'PL',
+        'PT', 'RO', 'RU', 'SM', 'RS',
+        'SK', 'SI', 'ES', 'SE', 'CH',
+        'TJ', 'TR', 'TM', 'UA', 'UZ',
+        'VA');
+
     protected  $_worldZone2 = array(
         'AU', 'PW', 'IO', 'CX', 'CC',
         'CK', 'FJ', 'PF', 'TF', 'KI',
@@ -328,18 +324,16 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract {
      * @return null|string
      */
     public function getWorldZone($countryCode) {
-        $country = strtoupper($countryCode);
-        if (in_array($country, $this->_worldZoneGb)) {
-            return self::WORLD_ZONE_GB;
-        } else if (in_array($country, $this->_worldZoneEu)) {
-            return self::WORLD_ZONE_EU;
-        } else if (in_array($country, $this->_worldZoneNonEu)) {
-            return self::WORLD_ZONE_NONEU;
-        } else if (in_array($country, $this->_worldZone2)) {
-            return self::WORLD_ZONE_TWO;
-        } else {
-            return self::WORLD_ZONE_ONE;
+        switch(strtoupper($countryCode)) {
+            case in_array($countryCode, $this->_worldZoneGb):
+                return self::WORLD_ZONE_GB;
+            case in_array($countryCode, $this->_worldZoneEu):
+                return self::WORLD_ZONE_EU;
+            case (in_array($countryCode, $this->_worldZone2)):
+                return self::WORLD_ZONE_TWO;
+            default:
+                return self::WORLD_ZONE_ONE;
         }
-        return null;
+
     }
 }
