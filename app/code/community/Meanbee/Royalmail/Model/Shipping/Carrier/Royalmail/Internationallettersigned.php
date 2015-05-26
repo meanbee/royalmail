@@ -22,7 +22,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail_Internationallettersign
 
     protected $insureOver = 50;
     protected $additionalInsuranceChargeEu = 2.50;
-    protected $additionalInsuranceChargeNonEu = 2.50;
     protected $additionalInsuranceChargeWz1 = 2.50;
     protected $additionalInsuranceChargeWz2 = 2.50;
 

@@ -11,3 +11,4 @@ class Meanbee_Royalmail_Test_Model_Shipping_Carrier_Royalmail_Source_Method exte
         $this->_model = null;
     }
 }
+
