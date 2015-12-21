@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NOTICE OF LICENSE
  *
@@ -16,14 +17,55 @@
  * @copyright  Copyright (c) 2008 Meanbee Internet Solutions (http://www.meanbee.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
 class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
     extends Mage_Shipping_Model_Carrier_Abstract
-    implements Mage_Shipping_Model_Carrier_Interface {
+    implements Mage_Shipping_Model_Carrier_Interface
+{
 
+    // Holds the royalmail lib method class
+    private $calculateMethodClass;
+
+    // Holds the royal mail lib data class
+    private $dataClass;
+
+    // The carrier code
     protected $_code = 'royalmail';
 
-    public function collectRates(Mage_Shipping_Model_Rate_Request $request) {
+    /**
+     * Requires and constructs the needed library files from the
+     * royal mail php library. These methods are then used in the
+     * logic of the extension.
+     *
+     * Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail constructor.
+     */
+    public function __construct()
+    {
+        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalMailPHPLibrary/src/CalculateMethod.php');
+        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalMailPHPLibrary/src/Data.php');
+
+        $this->calculateMethodClass = new Meanbee_RoyalmailPHPLibrary_CalculateMethod();
+        $this->dataClass = new Meanbee_RoyalmailPHPLibrary_Data(
+            $this->calculateMethodClass->_csvCountryCode,
+            $this->calculateMethodClass->_csvZoneToDeliverMethod,
+            $this->calculateMethodClass->_csvDeliveryMethodMeta,
+            $this->calculateMethodClass->_csvDeliveryToPrice,
+            $this->calculateMethodClass->_csvCleanNameToMethod,
+            $this->calculateMethodClass->_csvCleanNameMethodGroup
+        );
+    }
+
+    /**
+     * Collects the rates from the royal mail library and creates a request
+     * to be returned and then displayed. This is the main logic of this
+     * extension.
+     *
+     * @param Mage_Shipping_Model_Rate_Request $request
+     *
+     * @return bool|Mage_Shipping_Model_Rate_Result
+     */
+    public function collectRates(Mage_Shipping_Model_Rate_Request $request)
+    {
+
         if (!$this->getConfigFlag('active')) {
             return false;
         }
@@ -42,52 +84,92 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
 
         $result = Mage::getModel('shipping/rate_result');
 
-        if (count($this->getAllowedMethods()) > 0) {
-            foreach ($this->getAllowedMethods() as $key => $value) {
-                $obj = Mage::getModel("royalmail/shipping_carrier_royalmail_$key");
+        $allowedMethods = $this->getAllowedMethods();
+        if (empty($allowedMethods) == false) {
 
-                if ($obj === false) {
-                    Mage::log("Error loading royal mail: $key");
-                    continue;
-                }
-                
-                $obj->setWeightUnit($this->getConfigData('weight_unit'));
+            $data = $request->getData();
+            $calculatedMethods = $this->calculateMethodClass->getMethods($data['dest_country_id'],
+                $data['package_value'], $data['package_weight']);
 
-                $obj->setNegativeWeight($removeWeight);
+            // Config check to remove small or medium parcel size based on the
+            // config value set in the admin panel
+            if ($data['package_weight'] <= 2) {
+                if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL ||
+                    Mage::getStoreConfig('carriers/royalmail/parcel_size') == ""
+                ) {
+                    foreach ($calculatedMethods as $key => $value) {
+                        if ($value->size == 'MEDIUM') {
+                            unset($calculatedMethods[$key]);
 
-                $cost = $obj->getCost($request);
-
-                if ($cost !== null) {
-                    $method = Mage::getModel('shipping/rate_result_method');
-
-                    $method->setCarrier($this->_code);
-                    $method->setCarrierTitle($this->getConfigData('title'));
-
-                    $method->setMethod($key);
-                    $method->setMethodTitle($value);
-
-                    if ($request->getFreeShipping() === true || $request->getPackageQty() == $this->getFreeBoxes()) {
-                        $price = '0.00';
-                    } else {
-                        $price = $this->_performRounding($this->getFinalPriceWithHandlingFee($cost));
-                    }
-
-                    $method->setPrice($price);
-                    $method->setCost($price);
-
-                    $result->append($method);
-                    
-                    if ($price == '0.00') {
-                        break; // No more free methods
+                        }
                     }
                 }
+                if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::MEDIUM) {
+                    foreach ($calculatedMethods as $key => $value) {
+                        if ($value->size == 'SMALL') {
+                            unset($calculatedMethods[$key]);
+
+                        }
+                    }
+                }
+
+            }
+
+            foreach ($allowedMethods as $allowedMethod) {
+                foreach ($calculatedMethods as $methodItem) {
+                    if ($allowedMethod[1] == $methodItem->shippingMethodNameClean) {
+
+                        $dataClass = Mage::helper('royalmail');
+                        $dataClass->setWeightUnit($this->getConfigData('weight_unit'));
+                        $dataClass->setNegativeWeight($removeWeight);
+
+                        $method = Mage::getModel('shipping/rate_result_method');
+
+                        $method->setCarrier($this->_code);
+                        $method->setCarrierTitle($this->getConfigData('title'));
+
+                        $method->setMethod($methodItem->shippingMethodName);
+                        $method->setMethodTitle($methodItem->shippingMethodNameClean);
+
+                        if ($request->getFreeShipping() === true || $request->getPackageQty() == $this->getFreeBoxes()) {
+                            $price = '0.00';
+                        } else {
+                            $price = $this->_performRounding($this->getFinalPriceWithHandlingFee($methodItem->methodPrice));
+                        }
+
+                        $method->setPrice($price);
+                        $method->setCost($price);
+
+                        $result->append($method);
+                    }
+                }
+
             }
         }
 
-        return $result;
+        if (empty($result->getAllRates()) == true) {
+            $error = Mage::getModel('shipping/rate_result_error');
+            $error->setCarrier($this->_code);
+            $error->setCarrierTitle($this->getConfigData('title'));
+            $error->setErrorMessage($this->getConfigData('specificerrmsg'));
+            $result->append($error);
+
+            return $result;
+        } else {
+            return $result;
+        }
     }
 
-    protected function _performRounding($number) {
+    /**
+     * Performs rounding of the allowed methods based on the set config
+     * option in the admin area
+     *
+     * @param $number
+     *
+     * @return float
+     */
+    protected function _performRounding($number)
+    {
         $old = $number;
 
         switch ($this->getConfigData('rounding_rule')) {
@@ -119,65 +201,40 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         return $number;
     }
 
-    public function getAllowedMethods() {
+    /**
+     * Gets the methods selected in the admin area of the extension
+     * to ensure that not allowed methods can be removed in the collect
+     * rates method
+     *
+     * @return array
+     */
+    public function getAllowedMethods()
+    {
         $allowed = explode(',', $this->getConfigData('allowed_methods'));
         $arr = array();
-        foreach ($allowed as $k) {
-            $method_name = $this->getMethods($k);
-            if ($method_name) {
-                $arr[$k] = $method_name;
+        $allMethods = $this->getMethods();
+        foreach ($allowed as $key) {
+            foreach ($allMethods as $method) {
+                if ($method[0] == $key) {
+                    $arr[] = $method;
+                }
             }
         }
-
         return $arr;
     }
 
-    public function getMethods($name=null) {
-        $codes = array(
-                // To maintain backwards comparability we need to keep letter and largeletter indices the same
+    /**
+     * Gets the clean method names from the royal mail library data
+     * class. These names link directly to method names, but are used
+     * to ensure that duplicates are not created as similar names
+     * exists for multiple methods.
+     *
+     * @return array
+     */
+    public function getMethods()
+    {
+        $allMethods = $this->dataClass->mappingCleanNameMethodGroup;
 
-                'letter' => 'First Class Letter',
-                'largeletter' => 'First Class Large Letter',
-                'firstclasslettersignedfor' => 'First Class Letter (Signed for)',
-                'firstclasslargelettersignedfor' => 'First Class Large Letter (Signed for)',
-
-                'secondclassletter' => 'Second Class Letter',
-                'secondclasslargeletter' => 'Second Class Large Letter',
-                'secondclasslettersignedfor' => 'Second Class Letter (Signed For)',
-                'secondclasslargelettersignedfor' => 'Second Class Large Letter (Signed For)',
-
-                'secondclass' => 'Second Class Parcel',
-                'secondclassrecordedsignedfor' => 'Second Class Parcel (Signed for)',
-
-                'firstclass' => 'First Class Parcel',
-                'firstclassrecordedsignedfor' => 'First Class Parcel (Signed for)',
-
-                'specialdeliverynextday' => 'Special Delivery Guaranteed by 1pm (Up to 2,500GBP Insurance)',
-                'specialdelivery9am' => 'Special Delivery Guaranteed by 9am (Up to 2,500GBP Insurance)',
-                'specialdelivery9amsaturday' => 'Special Delivery Saturday Guaranteed by 9am (Up to 2,500GBP Insurance)',
-                'specialdeliverynextdaysaturday' => 'Special Delivery Saturday Guaranteed by 1pm (Up to 2,500GBP Insurance)',
-
-                'internationalstandard' => 'International Standard (up to 2kg)',
-                'internationaltrackedsigned' => 'International Tracked & Signed (Up to 250GBP Compensation)',
-                'internationaltracked' => 'International Tracked (Up to 250GBP Compensation)',
-                'internationalsigned' => 'International Signed (Up to 250GBP Compensation)',
-                'internationaleconomy' => 'International Economy',
-
-                'internationallettertracked' => 'International Letter Tracked',
-                'internationallettersigned' => 'International Letter Signed',
-                'internationallettereconomy' => 'International Letter Economy',
-                'internationalletterstandard' => 'International Letter Standard',
-                'internationallettertrackedsigned' => 'International Letter Tracked (Signed)',
-        );
-        
-        if ($name !== null) {
-            if (isset($codes[$name])) {
-                return $codes[$name];
-            } else {
-                return null;
-            }
-        } else {
-            return $codes;
-        }
+        return $allMethods;
     }
 }
