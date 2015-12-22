@@ -2644,3 +2644,5 @@ composer.lock
 /var/package/Magento_Mobile-1.14.2.2.xml
 /var/package/Phoenix_Moneybookers-1.14.2.2.xml
 /var/session
+/var/cache
+/var/phpunit.cache

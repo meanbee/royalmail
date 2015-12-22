@@ -65,6 +65,26 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract
         $this->_weight = $data;
     }
 
+    protected function _setCartTotal($value)
+    {
+        $this->_cart_total = $value;
+    }
+
+    public function getCartTotal()
+    {
+        return $this->_cart_total;
+    }
+
+    public function setNegativeWeight($value)
+    {
+        $this->_negative_weight = $value;
+    }
+
+    public function getNegativeWeight()
+    {
+        return $this->_negative_weight;
+    }
+
     // Return the weight in grammes
     public function _getWeight()
     {
@@ -84,25 +104,5 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return $weight;
-    }
-
-    protected function _setCartTotal($value)
-    {
-        $this->_cart_total = $value;
-    }
-
-    public function getCartTotal()
-    {
-        return $this->_cart_total;
-    }
-
-    public function setNegativeWeight($value)
-    {
-        $this->_negative_weight = $value;
-    }
-
-    public function getNegativeWeight()
-    {
-        return $this->_negative_weight;
     }
 }
