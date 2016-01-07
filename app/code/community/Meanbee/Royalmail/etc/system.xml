@@ -90,7 +90,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Select the shipping options that you would like to appear to the customer as an option.  Any options that are not selected will not be presented to the customer.</comment>
+                            <comment>Select the shipping options that you would like to appear to the customer as an option.  Any options that are not selected will not be presented to the customer. Hold CTRL + Click on Windows or CMD + Click on Mac to select multiple shipping methods. Alternately, press CTRL or CMD + A to select all shipping methods.</comment>
                         </allowed_methods>
 
                         <handling_fee translate="label">
