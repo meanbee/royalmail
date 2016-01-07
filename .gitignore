@@ -2646,3 +2646,5 @@ composer.lock
 /var/session
 /var/cache
 /var/phpunit.cache
+app/etc/local.xml
+app/etc/local.xml.phpunit
