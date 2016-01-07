@@ -10,4 +10,4 @@ At the time of writing, the module has over 8.8k downloads.  A popular choice fo
 
 Run `phpunit` with the Ecomdev_PHPUnit module installed, and this module's tests will be picked up.
 
-Please note, the countries Azores, Madeira, Corisca, Kosovo, and the Balearic Islands are not covered by magento despite the country codes being included.
+Please note, the countries Azores, Madeira, Corisca, Kosovo, and the Balearic Islands are not covered by Magento despite the country codes being included.
