@@ -23,11 +23,50 @@ This program is automatically unit tested with phpunit and travis.
 
 ## CSV data format
 
-This library uses four CSV files to determine which shipping methods are available: 
+This library uses six CSV files to determine which shipping methods are available: 
 
-1. 1_countryCodeToZone.csv - maps country code to world zone
-2. 2_zoneToDeliveryMethod.csv - maps world zone to all possible shipping methods in that world zone
-3. 3_deliveryMethodMeta.csv - maps delivery method to minimum and maximum price available to the method, max insurance available on method, and the clean method name
-4. 4_deliveryToPrice.csv - maps method name to minimum and maximum weight, max insurance value, price of method, and max insurance value 
+1. [1_countryCodeToZone.csv](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/1_countryToZone.csv)
+    * Country code
+    * World zone. Each country, defined by its country code can be in more then one zone. The code "GB" for Great Britain is in the EU and the GB World zone. There are four world zones:
+        * WORLD_ZONE_GB
+        * WORLD_ZONE_EU
+        * WORLD_ZONE_ONE
+        * WORLD_ZONE_TWO
+        
+2. [2_zoneToDeliveryMethod.csv](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/2_zoneToDeliveryMethod.csv)
+    * World zone
+    * Shipping zone. 
 
-In the case of extra insurance available on the item, another method must be created. An example can be seen in the 3_deliveryMethodMeta.csv.   
+    Each shipping method's name starts with the world zone it links to as prices differ between zones. 
+    
+3. [3_deliveryMethodMeta.csv](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/3_deliveryMethodMeta.csv) 
+    * Delivery method
+    * Minimum price of method
+    * Maximum price available to the method (the maximum price of shipping cart this method applies to)
+    * Max insurance available on method
+    * Clean method name. The clean method name represents the name of the method group, and is also represented in the 5 and 6 csvs. The clean method name is used to match multiple methods of the same type to the correct group.
+    
+4. [4_deliveryToPrice.csv](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/4_deliveryToPrice.csv)
+    * Method name
+    * Minimum weight
+    * Maximum weight
+    * Max insurance value available to the method
+    * Price of method
+    * Max insurance value
+    * In the case of small or medium parcel up to 2kg in weight "SMALL" or "MEDIUM" else blank
+     
+5. [5_cleanNameToMethod.csv](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/5_cleanNameToMethod.csv) 
+    * Method group name
+    * Clean method name
+    * Dirty method name
+
+    Each method group name is a all lowercase name that represents the group of method names overall. One method name represnts multipel method names.
+     
+6. [6_cleanNameToMethodGroup](https://github.com/meanbee/royalmail/blob/develop/lib/Meanbee/RoyalmailPHPLibrary/data/6_cleanNameMethodGroup.csv)
+    * Method group name
+    * Clean method name
+
+    This csv is used to form list of just the clean method names if necessasary. 
+
+Method names are constructed in the WORLDZONE_NAME_WITH_UNDERSCORES format with a separate method being added for each separate foramt. Examples of these can be seen in multiple of the csvs. In the case of extra insurance available on the item, another method must be created. An example can be seen in the 3_deliveryMethodMeta.csv.   
+

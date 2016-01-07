@@ -3,6 +3,19 @@
 class Meanbee_RoyalmailPHPLibrary_Data
 {
 
+    // Constants to link to the appropriate columns in the CSV files
+    const COUNTRY_CODE = 0;
+    const WORLD_ZONE = 0;
+    const SHIPPING_METHOD = 0;
+    const METHOD_MIN_VALUE = 1;
+    const METHOD_MAX_VALUE = 2;
+    const METHOD_MIN_WEIGHT = 1;
+    const METHOD_MAX_WEIGHT = 2;
+    const METHOD_PRICE = 3;
+    const METHOD_INSURANCE_VALUE = 4;
+    const METHOD_NAME_CLEAN = 4;
+    const METHOD_SIZE = 5;
+
     // Maps the method group name to the clean name and
     // the related method
     public $mappingCleanNameToMethod = array();
@@ -117,7 +130,7 @@ class Meanbee_RoyalmailPHPLibrary_Data
         // Get All array items that match the country code
         $countryCodeData = array();
         foreach ($mappingCountryToZone as $item) {
-            if (isset($item[0]) && $item[0] == $country_code) {
+            if (isset($item[self::COUNTRY_CODE]) && $item[self::COUNTRY_CODE] == $country_code) {
                 foreach ($item as $keys) {
                     $countryCodeData[] = $keys;
                 }
@@ -151,7 +164,7 @@ class Meanbee_RoyalmailPHPLibrary_Data
         foreach ($sortedCountryCodeMethods as $key => $value) {
             foreach ($value as $zone) {
                 foreach ($mappingZoneToMethod as $item) {
-                    if (isset($item[0]) && $item[0] == $zone) {
+                    if (isset($item[self::WORLD_ZONE]) && $item[self::WORLD_ZONE] == $zone) {
                         foreach ($item as $keys) {
                             $mappingZoneData[] = $keys;
                         }
@@ -195,8 +208,8 @@ class Meanbee_RoyalmailPHPLibrary_Data
         foreach ($sortedZoneToMethods as $key => $value) {
             foreach ($value as $method) {
                 foreach ($mappingMethodToMeta as $item) {
-                    if (isset($item[0]) && $item[0] == $method) {
-                        if ($packageValue >= $item[1] && $packageValue <= $item[2]) {
+                    if (isset($item[self::SHIPPING_METHOD]) && $item[self::SHIPPING_METHOD] == $method) {
+                        if ($packageValue >= $item[self::METHOD_MIN_VALUE] && $packageValue <= $item[self::METHOD_MAX_VALUE]) {
                             $mappingZoneMethodData[] = array($item);
                         }
 
@@ -228,26 +241,26 @@ class Meanbee_RoyalmailPHPLibrary_Data
     {
         $mappingDeliveryToPriceData = array();
         foreach ($sortedMethodToMeta as $method) {
-            foreach ($method as $thing) {
-                foreach ($thing as $key => $value) {
+            foreach ($method as $meta) {
+                foreach ($meta as $key => $value) {
                     foreach ($value as $methodData) {
                         foreach ($mappingDeliveryToPrice as $item) {
-                            if (isset($item[0]) && $item[0] == $methodData) {
-                                if ($package_weight >= $item[1] && $package_weight <= $item[2]) {
-                                    $objectArray = array(
-                                        'shippingMethodName'      => $item[0],
-                                        'minimumWeight'           => $item[1],
-                                        'maximumWeight'           => $item[2],
-                                        'methodPrice'             => $item[3],
-                                        'insuranceValue'          => $item[4],
-                                        'shippingMethodNameClean' => $value[4]
+                            if (isset($item[self::SHIPPING_METHOD]) && $item[self::SHIPPING_METHOD] == $methodData) {
+                                if ($package_weight >= $item[self::METHOD_MIN_WEIGHT] && $package_weight <= $item[self::METHOD_MAX_WEIGHT]) {
+                                    $resultArray = array(
+                                        'shippingMethodName'      => $item[self::SHIPPING_METHOD],
+                                        'minimumWeight'           => $item[self::METHOD_MIN_WEIGHT],
+                                        'maximumWeight'           => $item[self::METHOD_MAX_WEIGHT],
+                                        'methodPrice'             => $item[self::METHOD_PRICE],
+                                        'insuranceValue'          => $item[self::METHOD_INSURANCE_VALUE],
+                                        'shippingMethodNameClean' => $value[self::METHOD_NAME_CLEAN]
                                     );
 
-                                    if (isset($item[5])) {
-                                        $objectArray['size'] = $item[5];
+                                    if (isset($item[self::METHOD_SIZE])) {
+                                        $resultArray['size'] = $item[self::METHOD_SIZE];
                                     }
 
-                                    $mappingDeliveryToPriceData[] = $objectArray;
+                                    $mappingDeliveryToPriceData[] = $resultArray;
 
                                 }
                             }
