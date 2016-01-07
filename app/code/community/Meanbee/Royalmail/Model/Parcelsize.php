@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NOTICE OF LICENSE
  *
@@ -16,15 +17,22 @@
  * @copyright  Copyright (c) 2013 Meanbee Limited (http://www.meanbee.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+class Meanbee_Royalmail_Model_Parcelsize
+{
 
-class Meanbee_Royalmail_Model_Parcelsize {
-
-    const SMALL  = 'small';
+    const SMALL = 'small';
     const MEDIUM = 'medium';
 
-    public function toOptionArray() {
+    /**
+     * Sets the option array for the small and medium
+     * parcel option in admin section of the extension
+     *
+     * @return array
+     */
+    public function toOptionArray()
+    {
         $options = array(
-            array('value' => self::SMALL,  'label' => 'Small Parcel (up to 2kg)'),
+            array('value' => self::SMALL, 'label' => 'Small Parcel (up to 2kg)'),
             array('value' => self::MEDIUM, 'label' => 'Medium Parcel'),
         );
 

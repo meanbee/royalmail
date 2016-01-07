@@ -1,0 +1,107 @@
+"specialdelivery9am","Special Delivery: Guaranteed by 9am",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM,0,50,50
+"specialdelivery9am","Special Delivery: Guaranteed by 9am",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM,51,1000,1000
+"specialdelivery9am","Special Delivery: Guaranteed by 9am",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM,1001,2500,2500
+"specialdelivery1pm","Special Delivery: Guaranteed by 1pm",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM,0,500,500
+"specialdelivery1pm","Special Delivery: Guaranteed by 1pm",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM,501,1000,1000
+"specialdelivery1pm","Special Delivery: Guaranteed by 1pm",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM,1001,2500,2500
+"specialdelivery1pmsaturday","Special Delivery: Guaranteed by 1pm Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM_SATURDAY,0,500,500
+"specialdelivery1pmsaturday","Special Delivery: Guaranteed by 1pm Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM_SATURDAY,501,1000,1000
+"specialdelivery1pmsaturday","Special Delivery: Guaranteed by 1pm Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_1PM_SATURDAY,1001,2500,2500
+"specialdelivery9amsaturday","Special Delivery: Guaranteed by 9am Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM_SATURDAY,0,500,500
+"specialdelivery9amsaturday","Special Delivery: Guaranteed by 9am Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM_SATURDAY,501,1000,1000
+"specialdelivery9amsaturday","Special Delivery: Guaranteed by 9am Saturday",UK_GUARANTEED_ROYAL_MAIL_SPECIAL_DELIVERY_9AM_SATURDAY,1001,2500,2500
+"firstclasslettersignedfor","Signed For: First Class Letter",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_FIRST_CLASS_LETTER,0,50,50
+"firstclasslargelettersignedfor","Signed For: First Class Large Letter",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_FIRST_CLASS_LARGE_LETTER,0,50,50
+"firstclasssignedforsmall","Signed For: First Small Parcel",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_FIRST_CLASS_SMALL_PARCEL,0,50,50
+"firstclasssignedformedium","Signed For: First Medium Parcel",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_FIRST_CLASS_MEDIUM_PARCEL,0,50,50
+"secondclasslettersignedfor","Signed For: Second Class Class Letter",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_SECOND_CLASS_LETTER,0,50,50
+"secondclasslargelettersignedfor","Signed For: Second Class Class Large Letter",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_SECOND_CLASS_LARGE_LETTER,0,50,50
+"secondclasssmallparcelsignedfor","Signed For: Second Class Small Parcel",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_SECOND_CLASS_SMALL_PARCEL,0,50,50
+"secondclassmediumparcelsignedfor","Signed For: Second Class Medium Parcel",UK_CONFIRMED_ROYAL_MAIL_SIGNED_FOR_SECOND_CLASS_MEDIUM_PARCEL,0,50,50
+"letter","Standard First Class Letter",UK_STANDARD_FIRST_CLASS_LETTER,0,20,20
+"largeletter","Standard First Class Large Letter",UK_STANDARD_FIRST_CLASS_LARGE_LETTER,0,20,20
+"firstclasssmall","Standard First Class Small Parcel",UK_STANDARD_FIRST_CLASS_SMALL_PARCEL,0,20,20
+"firstclassmedium","Standard First Class Medium Parcel",UK_STANDARD_FIRST_CLASS_MEDIUM_PARCEL,0,20,20
+"secondclassletter","Second Class: Letter",UK_STANDARD_SECOND_CLASS_LETTER,0,20,20
+"secondclasslargeletter","Second Class: Large Letter",UK_STANDARD_SECOND_CLASS_LARGE_LETTER,0,20,20
+"secondclasssmallparcel","Second Class: Small Parcel",UK_STANDARD_SECOND_CLASS_SMALL_PARCEL,0,20,20
+"secondclassmediumparcel","Second Class: Medium Parcel",UK_STANDARD_SECOND_CLASS_MEDIUM_PARCEL,0,20,20
+"internationalstandardletter","International Standard Letter",WORLD_ZONE_EU_INTERNATIONAL_STANDARD_LETTER,0,20,20
+"internationalstandardletter","International Standard Letter",WORLD_ZONE_ONE_INTERNATIONAL_STANDARD_LETTER,0,20,20
+"internationalstandardletter","International Standard Letter",WORLD_ZONE_TWO_INTERNATIONAL_STANDARD_LETTER,0,20,20
+"internationalstandardlargeletter","International Standard Large Letter",WORLD_ZONE_EU_INTERNATIONAL_STANDARD_LARGE_LETTER,0,20,20
+"internationalstandardlargeletter","International Standard Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_STANDARD_LARGE_LETTER,0,20,20
+"internationalstandardlargeletter","International Standard Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_STANDARD_LARGE_LETTER,0,20,20
+"internationalstandardsmallparcel","International Standard Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_STANDARD_SMALL_PARCEL,0,20,20
+"internationalstandardsmallparcel","International Standard Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_STANDARD_SMALL_PARCEL,0,20,20
+"internationalstandardsmallparcel","International Standard Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_STANDARD_SMALL_PARCEL,0,20,20
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER,0,50,50
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallargelettertrackedandsigned","International Tracked and Signed Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationalsmallparceltrackedsigned","International Tracked and Signed Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_LETTER,0,50,50
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_LETTER,0,50,50
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_LETTER,0,50,50
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedletter","International Tracked Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_LARGE_LETTER,0,50,50
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_LARGE_LETTER,0,50,50
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_LARGE_LETTER,0,50,50
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedlargeletter","International Tracked Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_SMALL_PARCEL,0,50,50
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_SMALL_PARCEL,0,50,50
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_SMALL_PARCEL,0,50,50
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationallettersigned","International Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LETTER,0,50,20
+"internationallettersigned","International Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LETTER,0,50,20
+"internationallettersigned","International Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LETTER,0,50,20
+"internationallettersigned","International Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallettersigned","International Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationallettersigned","International Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LARGE_LETTER,0,50,50
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LARGE_LETTER,0,50,50
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LARGE_LETTER,0,50,50
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedlargeletter","International Signed Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LARGE_LETTER_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_SMALL_PARCEL,0,50,50
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationalsignedsmallparcel","International Signed Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
+"internationaleconomyletter","International Economy Letter",WORLD_ZONE_ONE_INTERNATIONAL_ECONOMY_LETTER,0,20,20
+"internationaleconomyletter","International Economy Letter",WORLD_ZONE_TWO_INTERNATIONAL_ECONOMY_LETTER,0,20,20
+"internationaleconomylargeletter","International Economy Large Letter",WORLD_ZONE_ONE_INTERNATIONAL_ECONOMY_LARGE_LETTER,0,20,20
+"internationaleconomylargeletter","International Economy Large Letter",WORLD_ZONE_TWO_INTERNATIONAL_ECONOMY_LARGE_LETTER,0,20,20
+"internationaleconomysmallparcel","International Economy Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_ECONOMY_SMALL_PARCEL,0,20,20
+"internationaleconomysmallparcel","International Economy Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_ECONOMY_SMALL_PARCEL,0,20,20
+"parcelforceworldwideexpress9","Parcelforce Worldwide: Express 9",PARCELFORCE_WORLDWIDE_EXPRESS_9,0,200,200
+"parcelforceworldwideexpress10","Parcelforce Worldwide: Express 10",PARCELFORCE_WORLDWIDE_EXPRESS_10,0,200,200
+"parcelforceworldwideexpressAM","Parcelforce Worldwide: Express AM",PARCELFORCE_WORLDWIDE_EXPRESS_AM,0,200,200
+"parcelforceworldwideexpress24","Parcelforce Worldwide: Express 24",PARCELFORCE_WORLDWIDE_EXPRESS_24,0,100,100
+"parcelforceworldwideexpress48","Parcelforce Worldwide: Express 48",PARCELFORCE_WORLDWIDE_EXPRESS_48,0,100,100
+"parcelforceworldwideexpress9saturday","Parcelforce Worldwide: Express 9",PARCELFORCE_WORLDWIDE_EXPRESS_9_SATURDAY,0,200,200
+"parcelforceworldwideexpress10saturday","Parcelforce Worldwide: Express 10",PARCELFORCE_WORLDWIDE_EXPRESS_10_SATURDAY,0,200,200
+"parcelforceworldwideexpressAMsaturday","Parcelforce Worldwide: Express AM",PARCELFORCE_WORLDWIDE_EXPRESS_AM_SATURDAY,0,200,200
+"parcelforceworldwideexpress24saturday","Parcelforce Worldwide: Express 24",PARCELFORCE_WORLDWIDE_EXPRESS_24_SATURDAY,0,100,100
+"parcelforceworldwideexpress48saturday","Parcelforce Worldwide: Express 48",PARCELFORCE_WORLDWIDE_EXPRESS_48_SATURDAY,0,100,100

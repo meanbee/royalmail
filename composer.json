@@ -1,0 +1,52 @@
+{
+  "name": "meanbee/royalmail",
+  "type": "magento-module",
+  "description": "A Magento shipping extension to add Royal Mail shipping methods.",
+  "homepage": "https://www.meanbee.com/magento-extensions/magento-royal-mail.html",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.firegento.com"
+    },
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:meanbee/magento.git"
+    }
+  ],
+  "require-dev": {
+    "aydin-hassan/magento-core-composer-installer": "^1.3",
+    "ecomdev/ecomdev_phpunit": "*",
+    "mikey179/vfsStream": "*@stable",
+    "magento/magento": "1.14.2.2",
+    "squizlabs/php_codesniffer": "*",
+    "magento-ecg/coding-standard": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "": [
+        "app",
+        "app/code/local",
+        "app/code/community",
+        "app/code/core",
+        "lib"
+      ]
+    }
+  },
+  "extra": {
+    "magento-root-dir": ".",
+    "auto-append-gitignore": true,
+    "magento-core-deploy": {
+      "excludes": [
+        ".gitignore",
+        "composer.json",
+        "composer.lock"
+      ]
+    }
+  },
+  "scripts": {
+    "test": [
+      "./vendor/bin/phpcs --standard=./vendor/magento-ecg/coding-standard/Ecg src",
+      "./vendor/bin/phpunit"
+    ]
+  }
+}

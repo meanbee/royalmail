@@ -1,5 +1,13 @@
 app/code/community/Meanbee/Royalmail app/code/community/Meanbee/Royalmail
+
 app/etc/modules/* app/etc/modules/
+lib/Meanbee/RoyalmailPHPLibrary lib/Meanbee/RoyalmailPHPLibrary
 package.xml var/connect/Meanbee_Royalmail.xml
 
 phpunit.xml meanbee_royalmail_phpunit.xml
+
+app/code/community/EcomDev app/code/community/EcomDev
+shell/ecomdev-phpunit.php shell/ecomdev-phpunit.php
+lib/EcomDev lib/EcomDev
+lib/Spyc lib/Spyc
+lib/vfsStream lib/vsfStream

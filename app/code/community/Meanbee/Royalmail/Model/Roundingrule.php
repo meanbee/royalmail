@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NOTICE OF LICENSE
  *
@@ -16,9 +17,17 @@
  * @copyright  Copyright (c) 2008 Meanbee Internet Solutions (http://www.meanbee.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+class Meanbee_Royalmail_Model_Roundingrule
+{
 
-class Meanbee_Royalmail_Model_Roundingrule {
-    public function toOptionArray() {
+    /**
+     * Sets the option array for the rounding table in the
+     * admin section of the extension
+     *
+     * @return array
+     */
+    public function toOptionArray()
+    {
         $options = array(
             array('value' => 'none', 'label' => 'No rounding performed'),
             array('value' => 'pound', 'label' => 'Round to the nearest pound'),
