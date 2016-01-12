@@ -9,6 +9,6 @@
   },
 
   "autoload": {
-    "psr-4": { "Meanbee\\RoyalMail\\": ["src/", "tests/"] }
+    "psr-4": { "Meanbee\\Royalmail\\": ["src/", "tests/"] }
   }
 }
