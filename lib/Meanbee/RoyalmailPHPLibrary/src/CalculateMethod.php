@@ -52,7 +52,7 @@ class Meanbee_RoyalmailPHPLibrary_CalculateMethod
 
         $sortedDeliveryMethods = array($data->calculateMethods($country_code, $package_value, $package_weight));
 
-        $results = [];
+        $results = array();
 
         foreach ($sortedDeliveryMethods as $shippingMethod) {
             foreach ($shippingMethod as $item) {
