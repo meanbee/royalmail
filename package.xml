@@ -1,5 +1,5 @@
 <_>
-   <form_key>QwJX3XS3dAhahdvS</form_key>
+   <form_key>y0ShjLGrOcqkOAlh</form_key>
    <name>Meanbee_Royalmail</name>
    <channel>community</channel>
    <version_ids>
@@ -9,13 +9,9 @@
    <description>Automatically calculated Royal Mail delivery methods.</description>
    <license>Open Software License v3.0 (OSL-3.0)</license>
    <license_uri>http://www.opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>2.7.1</version>
+   <version>2.7.2</version>
    <stability>stable</stability>
-   <notes>*Added additional Royalmail shipping methods
-
-*Fixed incorrect name error
-
-*Fixed PHP 5.4 and lower error</notes>
+   <notes>* Fixed PHP 5.3 error</notes>
    <authors>
       <name>
          <name>Meanbee</name>
@@ -27,7 +23,7 @@
          <email>hello@meanbee.com</email>
       </email>
    </authors>
-   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_min>5.3.0</depends_php_min>
    <depends_php_max>7.1.0</depends_php_max>
    <depends>
       <package>
@@ -44,7 +40,7 @@
             <max/>
          </max>
          <files>
-            <files>                      </files>
+            <files>                       </files>
          </files>
       </package>
       <extension>
