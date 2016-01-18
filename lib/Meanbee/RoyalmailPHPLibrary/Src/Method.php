@@ -1,6 +1,6 @@
 <?php
 
-class Meanbee_RoyalmailPHPLibrary_src_Method
+class Meanbee_RoyalmailPHPLibrary_Src_Method
 {
     // The shipping code name of the method
     public $shippingMethodName;

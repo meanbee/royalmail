@@ -56,7 +56,7 @@ class Meanbee_RoyalmailPHPLibrary_CalculateMethod
 
         foreach ($sortedDeliveryMethods as $shippingMethod) {
             foreach ($shippingMethod as $item) {
-                $method = new Meanbee_RoyalmailPHPLibrary_src_Method();
+                $method = new Meanbee_RoyalmailPHPLibrary_Src_Method();
                 $method->countryCode = $country_code;
                 $method->shippingMethodName = $item['shippingMethodName'];
                 $method->minimumWeight = $item['minimumWeight'];
