@@ -40,8 +40,8 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
      */
     public function __construct()
     {
-        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalmailPHPLibrary/src/CalculateMethod.php');
-        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalmailPHPLibrary/src/Data.php');
+        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalmailPHPLibrary/Src/CalculateMethod.php');
+        require_once(Mage::getBaseDir('lib') . '/Meanbee/RoyalmailPHPLibrary/Src/Data.php');
 
         $this->calculateMethodClass = new Meanbee_RoyalmailPHPLibrary_CalculateMethod();
         $this->dataClass = new Meanbee_RoyalmailPHPLibrary_Data(
