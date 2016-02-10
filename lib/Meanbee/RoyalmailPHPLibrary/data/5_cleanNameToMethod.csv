@@ -36,8 +36,8 @@
 "internationalstandardsmallparcel","International Standard Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_STANDARD_SMALL_PARCEL,0,20,20
 "internationalstandardsmallparcel","International Standard Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_STANDARD_SMALL_PARCEL,0,20,20
 "internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER,0,50,50
-"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
-"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LARGE_LETTER,0,50,50
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER,0,50,50
+"internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER,0,50,50
 "internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
 "internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
 "internationallettertrackedsigned","International Tracked and Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_AND_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
@@ -71,9 +71,9 @@
 "internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_EU_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
 "internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_ONE_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
 "internationaltrackedsmallparcel","International Tracked Small Parcel",WORLD_ZONE_TWO_INTERNATIONAL_TRACKED_SMALL_PARCEL_EXTRA_INSURANCE,50.01,250,250
-"internationallettersigned","International Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LETTER,0,50,20
-"internationallettersigned","International Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LETTER,0,50,20
-"internationallettersigned","International Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LETTER,0,50,20
+"internationallettersigned","International Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LETTER,0,50,50
+"internationallettersigned","International Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LETTER,0,50,50
+"internationallettersigned","International Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LETTER,0,50,50
 "internationallettersigned","International Signed Letter",WORLD_ZONE_EU_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
 "internationallettersigned","International Signed Letter",WORLD_ZONE_ONE_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
 "internationallettersigned","International Signed Letter",WORLD_ZONE_TWO_INTERNATIONAL_SIGNED_LETTER_EXTRA_INSURANCE,50.01,250,250
