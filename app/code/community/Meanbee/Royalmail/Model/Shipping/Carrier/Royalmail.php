@@ -88,12 +88,18 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
         if (empty($allowedMethods) == false) {
 
             $data = $request->getData();
+
+            $dataClass = Mage::helper('royalmail');
+            $dataClass->setWeightUnit($this->getConfigData('weight_unit'));
+            $dataClass->setNegativeWeight($removeWeight);
+            $dataClass->_setWeight($data['package_weight']);
+
             $calculatedMethods = $this->calculateMethodClass->getMethods($data['dest_country_id'],
-                $data['package_value'], $data['package_weight']);
+                $data['package_value'], $dataClass->_getWeight());
 
             // Config check to remove small or medium parcel size based on the
             // config value set in the admin panel
-            if ($data['package_weight'] <= 2) {
+            if ($dataClass->_getWeight() <= 2) {
                 if (Mage::getStoreConfig('carriers/royalmail/parcel_size') == Meanbee_Royalmail_Model_Parcelsize::SMALL ||
                     Mage::getStoreConfig('carriers/royalmail/parcel_size') == ""
                 ) {
@@ -118,10 +124,6 @@ class Meanbee_Royalmail_Model_Shipping_Carrier_Royalmail
             foreach ($allowedMethods as $allowedMethod) {
                 foreach ($calculatedMethods as $methodItem) {
                     if ($allowedMethod[1] == $methodItem->shippingMethodNameClean) {
-
-                        $dataClass = Mage::helper('royalmail');
-                        $dataClass->setWeightUnit($this->getConfigData('weight_unit'));
-                        $dataClass->setNegativeWeight($removeWeight);
 
                         $method = Mage::getModel('shipping/rate_result_method');
 
