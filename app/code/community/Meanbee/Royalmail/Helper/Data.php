@@ -96,7 +96,7 @@ class Meanbee_Royalmail_Helper_Data extends Mage_Core_Helper_Abstract
                 // do nothing, as default royalmail value
                 break;
             case 'lb':
-                $weight *= 453.59237;
+                $weight *= 0.45359237;
                 break;
             default: // case 'g'
                 $weight /= 1000;
