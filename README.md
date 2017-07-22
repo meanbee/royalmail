@@ -2,9 +2,9 @@
 
 ![image](http://up.nicksays.co.uk/200k1j35411o2i0Y0N3S/RoyalMail.png)
 
-This repository contains the source code for the Meanbee Royal Mail Magento module, which is available for download on [Magento Connect](http://www.magentocommerce.com/magento-connect/meanbee-royal-mail-domestic-and-international-shipping.html).
+This repository contains the source code for the Meanbee Royal Mail Magento module.
 
-At the time of writing, the module has over 8.8k downloads.  A popular choice for Magento users in the United Kingdom.
+At the time of writing, the module has over 10k downloads.  A popular choice for Magento users in the United Kingdom.
 
 ## Unit Testing
 
