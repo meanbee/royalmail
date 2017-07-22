@@ -6,7 +6,7 @@ This repository contains the source code for the Meanbee Royal Mail Magento modu
 
 At the time of writing, the module has over 10k downloads.  A popular choice for Magento users in the United Kingdom.
 
-## Unit Testing
+## Unit Testing
 
 Run `phpunit` with the Ecomdev_PHPUnit module installed, and this module's tests will be picked up.
 
